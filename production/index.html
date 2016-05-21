@@ -1,9 +1,193 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="1Ingress Website">
+	<title>1Ingress</title>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<nav class="row navbar">
+		<div class="col s2 menu">
+			<!-- Dropdown Trigger -->
+			<a class='dropdown-button btn icon-btn' href='#' data-activates='menu-dropdown'>
+				<img src="img/icon_menu.png" alt="hamburger" />
+			</a>
+			<!--<a class='dropdown-button btn icon-btn' href='#' data-activates='dropdown1'>
+				<img src="img/icon_login.png" alt="hamburger" />
+			</a>-->
+
+			<!-- Dropdown Structure -->
+			<ul id='menu-dropdown' class='dropdown-content'>
+				<li><a class="dropdown-constant" href="#!">Home</a></li>
+				<li><a class="dropdown-constant" href="#!">Login</a></li>
+				<li><a class="dropdown-constant" href="#!">Who we are</a></li>
+				<li><a class="nest-trigger" href="#!">Our Products</a></li>
+				<li class="nest-dropdown">
+					<ul>
+						<li><a href="#!">Interactive Business Suite</a></li>
+						<li><a href="#!">Interactive Educational Suite</a></li>
+						<li><a href="#!">Interactive Travel Suite</a></li>
+						<li><a href="#!">Reductions and Markdown Suite</a></li>
+						<li><a href="#!">Multi-purpose Admittance Card</a></li>
+					</ul>
+				</li>
+				<li><a class="dropdown-constant" href="#membership">Membership Perks</a></li>
+				<li><a class="dropdown-constant" href="#!">Contact Us</a></li>
+			</ul>
+<!-- 
+
+FIGURE THIS OUT LATER
+				<li>
+					<ul class="collapsible collapsible-accordion">
+						<li>
+							<a class="collapsible-header waves-effect" style="padding:0;">Our Products</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#">Something</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</li>
+
+-->
+			</ul>
+		</div>
+		<div class="col s8 logo">
+			<a href="#"><img src="img/logo_1Ingress.jpg" alt="1ingress" /></a>
+		</div>
+	</nav>
+	<header class="row">
+		<div class="col s12">
+			<img src="img/artwork_header.png" alt="1INGRESS artwork" />
+		</div>
+	</header>
+	<section class="row top-row">
+		<div class="col s12 m12 l6 description left">
+			<h1>
+				Who We Are
+			</h1>
+			<h3>
+				At 1Ingress we work to maximize your interaction on the Internet while using our technology to personlize your experience.
+			</h3>
+			<div class="paragraph-left">
+				<p>
+					Our engine will provide an infrastructure that provides communication network that will span the entire globe. With our hassle-free solutions we enhance, increase, and maximize global interactivity through safe, efficient, and organized Internet platform for business, education, marketing, security, and daily operations.
+				</p>
+				<div class="outer-left">
+					<div class="mid-left">
+						<a href="#">About us</a>
+					</div>
+					<div class="mid-right icon">
+						<a href="#!"><img src="img/icon_blue_arrow.jpg" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col s12 m12 l6">
+			<form id="form" action="#">
+				<fieldset>
+					<input class="full-width" id="name" type="text" name="name" placeholder="Full name" required/>
+					<input class="half-width input-left" id="email" type="text" name="email" placeholder="Email address" required/>
+					<input class="half-width input-right" id="password" type="text" name="password" placeholder="Password" required/>
+					<input class="full-width" id="name" type="submit" name="name" value="Sign up for free now" required/>
+				</fieldset>
+			</form>
+			<img class="mic" src="img/icon_voice.jpg" alt="" />
+		</div>
+	</section>
+	<section class="row">
+		<div class="col s12 m12 l6 description right">
+			<h1>
+				Our Products
+			</h1>
+			<h3>
+				Our products provide business, educational, career, marketing, transportation, e-Commerce, and networking solutions to consumers within specialized suites.
+			</h3>
+			<div class="paragraph-right">
+				<p>
+					Our engine will provide an infrastructure that provides communication network that will span the entire globe. With our hassle-free solutions we enhance, increase, and maximize global interactivity through safe, efficient, and organized Internet platform for business, education, marketing, security, and daily operations.
+				</p>
+				<div class="outer-right">
+					<div class="mid-left">
+						<a href="#!">See our Suites </a>
+					</div>
+					<div class="mid-right icon">
+						<a href="#!"><img src="img/icon_blue_arrow.jpg" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col s12 m12 l6 left-artwork">
+			<img src="img/artwork_laptop_left.jpg" alt="1ingress" />
+		</div>
+	</section>
+	<section id="membership" class="row">
+		<div class="col s12 m12 l6 description left">
+			<h1>
+				Our Membership Perks
+			</h1>
+			<h3>
+				Our membership gives you complete entry to the web.
+			</h3>
+			<div class="paragraph-left">
+				<p>
+					Upon logging into the engine, members will be able to access the suites that they have paid membership to utilize. Instead of multiple login pages, the member will only be required to log into the system once to gain admittance to all products and services. Fuse these services together, and what exists is a combination of solutions that weave into every market created.
+				</p>
+				<div class="outer-left">
+					<div class="mid-left">
+						<a href="#">Learn more</a>
+					</div>
+					<div class="mid-right icon">
+						<a href="#!"><img src="img/icon_blue_arrow.jpg" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col s12 m12 l6 right-artwork">
+			<img src="img/artwork_laptop_right.jpg" alt="1ingress" />
+		</div>
+	</section>
+	<section class="row">
+		<div class="col s12 m12 l6 center">
+			<h3>
+				Start your trial now!
+			</h3>
+			<form id="form_02" class="bottom-form" action="#">
+				<fieldset>
+					<input class="full-width" id="name" type="text" name="name" placeholder="Full name" required/>
+					<input class="half-width input-left" id="email" type="text" name="email" placeholder="Email address" required/>
+					<input class="half-width input-right" id="password" type="text" name="password" placeholder="Password" required/>
+					<input class="full-width" id="name" type="submit" name="name" value="Submit" required/>
+				</fieldset>
+			</form>
+		</div>
+	</section>
+	<section class="row">
+		<div class="col s12 m12 l12 center">
+			<h1>Our Partners</h1>
+			<div class="partner-logos">
+				<img src="img/logo_lenovo.jpg" alt="Lenova" />
+				<img src="img/logo_wells.jpg" alt="Wells Fargo" />
+				<img src="img/logo_sprint.jpg" alt="Sprint" />
+				<img src="img/logo_kantech.jpg" alt="Kantech" />
+				<img src="img/logo_symantec.jpg" alt="Symantec" />
+			</div>
+		</div>
+	</section>
+	<footer class="row">
+		
+	</footer>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/scripty-min.js"></script>
 </body>
 </html>

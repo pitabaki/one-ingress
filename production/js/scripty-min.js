@@ -1,0 +1,1 @@
+!function(){$(".dropdown-button").dropdown({inDuration:500,outDuration:225,constrain_width:!1,hover:!1,gutter:0,belowOrigin:!1,alignment:"left"}),$(".dropdown-constant").hover(function(){$(".nest-dropdown").css("cssText","min-height: 0px !important;")}),$(".nest-trigger").hover(function(){$(".nest-dropdown").css("cssText","min-height: 150px !important;")})}();
