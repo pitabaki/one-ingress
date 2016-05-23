@@ -38,6 +38,8 @@ footer
 	background-color: $h1-blue
 	margin: 0 auto !important
 	min-height: 45px
+	padding: 0 50px
+
 h1
 	font-family: $head-copy
 	font-weight: 400
@@ -145,6 +147,8 @@ input[type="submit"]
 input[type="submit"]:hover
 	background-color: $h3-blue-shade !important
 
++placeholder(#999999)
+
 .center
 	float: none !important
 	margin: 0 auto
@@ -200,18 +204,22 @@ input[type="submit"]:hover
 .nest-dropdown li>a,
 .collapsible li>a,
 .collapsible li>span,
-.collapsible li
+.collapsible li,
+footer h4
 	font-family: $body-copy
 	font-size: 17px
 	font-weight: 700
 	color: $true-white
 	padding: 14px 50px 8px
 
-.nest-dropdown li>a
+footer h4
+	padding-left: 0
+
+.nest-dropdown li>a,
 	font-weight: lighter
 	padding: 4px 50px
 
-.nest-dropdown li>a:hover
+.nest-dropdown li>a:hover,
 	color: $main-color !important
 	background-color: $dropdown-purple !important
 
@@ -247,7 +255,7 @@ input[type="submit"]:hover
 	padding-top: 20px !important
 
 .menu
-	padding-top: 30px !important
+	padding-top: 20px !important
 
 .menu a
 	line-height: 0
@@ -297,6 +305,19 @@ input[type="submit"]:hover
 	display: inline
 	vertical-align: middle
 	margin: 4% !important
+
+footer li>a,
+footer p
+	color: $true-white
+	transition: color 0.5s ease
+
+footer li>a:hover
+	color: $h3-blue !important
+
+footer p
+	font-size: 18px
+	line-height: 32px
+
 @media screen and (max-width: 1200px)
 	.left-artwork img
 		margin-right: 0 !important

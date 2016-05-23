@@ -8,6 +8,7 @@
 	<title>1Ingress</title>
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,8 +27,8 @@
 			<ul id='menu-dropdown' class='dropdown-content'>
 				<li><a class="dropdown-constant" href="#!">Home</a></li>
 				<li><a class="dropdown-constant" href="#!">Login</a></li>
-				<li><a class="dropdown-constant" href="#!">Who we are</a></li>
-				<li><a class="nest-trigger" href="#!">Our Products</a></li>
+				<li><a class="dropdown-constant" href="#about">Who we are</a></li>
+				<li><a class="nest-trigger" href="#products">Our Products</a></li>
 				<li class="nest-dropdown">
 					<ul>
 						<li><a href="#!">Interactive Business Suite</a></li>
@@ -38,7 +39,7 @@
 					</ul>
 				</li>
 				<li><a class="dropdown-constant" href="#membership">Membership Perks</a></li>
-				<li><a class="dropdown-constant" href="#!">Contact Us</a></li>
+				<li><a class="dropdown-constant" href="#site-map">Contact Us</a></li>
 			</ul>
 <!-- 
 
@@ -70,7 +71,7 @@ FIGURE THIS OUT LATER
 			<img src="img/artwork_header.png" alt="1INGRESS artwork" />
 		</div>
 	</header>
-	<section class="row top-row">
+	<section id="about" class="row top-row">
 		<div class="col s12 m12 l6 description left">
 			<h1>
 				Who We Are
@@ -104,7 +105,7 @@ FIGURE THIS OUT LATER
 			<img class="mic" src="img/icon_voice.jpg" alt="" />
 		</div>
 	</section>
-	<section class="row">
+	<section id="products" class="row">
 		<div class="col s12 m12 l6 description right">
 			<h1>
 				Our Products
@@ -171,7 +172,7 @@ FIGURE THIS OUT LATER
 			</form>
 		</div>
 	</section>
-	<section class="row">
+	<section id="partners" class="row">
 		<div class="col s12 m12 l12 center">
 			<h1>Our Partners</h1>
 			<div class="partner-logos">
@@ -183,8 +184,39 @@ FIGURE THIS OUT LATER
 			</div>
 		</div>
 	</section>
-	<footer class="row">
-		
+	<footer id="site-map" class="row">
+		<div class="col s12 m6 l3">
+			<h4>Company</h4>
+			<ul>
+				<li><a href="#!">About Us</a></li>
+				<li><a href="#!">Login</a></li>
+				<li><a href="#!">Products</a></li>
+				<li><a href="#!">Membership</a></li>
+			</ul>
+		</div>
+		<div class="col s12 m6 l3">
+			<h4>Support</h4>
+			<ul>
+				<li><a href="#!">Get Started</a></li>
+				<li><a href="#!">Contact</a></li>
+				<li><a href="#!">Documentation</a></li>
+				<li><a href="#!">Privacy &amp; Terms</a></li>
+			</ul>
+		</div>
+		<div class="col s12 m6 l3">
+			<h4>Partners and Vendors</h4>
+			<ul>
+				<li><a href="#!">Aguilar Agency</a></li>
+				<li><a href="#!">World Christian Agency</a></li>
+				<li><a href="#!">Credit Coaching</a></li>
+				<li><a href="#!">Laughlin Group</a></li>
+				<li><a href="#!">Rex Key &amp; Security</a></li>
+			</ul>
+		</div>
+		<div class="col s12 m6 l3">
+			<h4>Connect</h4>
+			<p>1 Ingress Corporation<br>1255 Treat Blvd Ste. 300<br>Walnut Creek, CA 94597<br>+1 925.800.3456<br>info@1ingress.com</p>
+		</div>
 	</footer>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
