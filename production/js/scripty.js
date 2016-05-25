@@ -14,5 +14,49 @@
 	$('.nest-trigger').hover(function(){
 		$('.nest-dropdown').css('cssText', 'min-height: 150px !important;');
 	});
+	$('#login').click(function(){
+		event.preventDefault();
+		$('#black-bg').css({
+			"display":"block"
+		});
+		setTimeout(function(){
+			$('#black-bg').css({
+				'opacity':'0.7'
+			});
+		}, 50);
+		setTimeout(function(){
+			$('#login-modal').css({
+				'display':'block',
+			});
+			setTimeout(function(){
+				$('#login-modal').css({
+					'bottom':'0%'
+				});
+			}, 50);
+		}, 50);
+		/*$('.modal').css({
+			'bottom':'0%'
+		});*/
+	});
+	$("#black-bg").click(function(){
+		$('#black-bg').css({
+			"opacity":"0"
+		});
+		setTimeout(function(){
+			$('#black-bg').css({
+				'display':'none'
+			});
+		}, 100);
+		setTimeout(function(){
+			$('#login-modal').css({
+				'bottom':'-100%',
+			});
+			setTimeout(function(){
+				$('#login-modal').css({
+					'display':'none'
+				});
+			}, 100);
+		}, 50);
+	});
 })
 ();

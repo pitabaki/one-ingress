@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	merge = require('merge-stream'),
 	minify = require('gulp-minify'),
+  htmlReplace = require('gulp-html-replace'),
 	minifyCSS = require('gulp-clean-css'),
 	sass = require('gulp-sass');
 
@@ -30,6 +31,9 @@ gulp.task('massiveMerge', function() {
    var javascript = gulp.src('../js/*')
 		.pipe(gulp.dest('../../production/js'));
    var index = gulp.src('../index.html')
+    .pipe(htmlReplace({
+      'css': 'css/style.min.css'
+    }))
 		.pipe(gulp.dest('../../production'));
    var img = gulp.src('../img/*')
 		.pipe(gulp.dest('../../production/img'));
