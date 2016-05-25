@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -13,6 +13,18 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div id="login-modal" class="modal bottom-sheet">
+		<div class="modal-content">
+			<form id="modal-form" action="#">
+				<fieldset>
+					<input class="full-width" id="email" type="text" name="email" placeholder="Email address" required/>
+					<input class="full-width" id="password" type="text" name="password" placeholder="Password" required/>
+					<input class="full-width" id="name" type="submit" name="name" value="Sign up for free now" required/>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div id="black-bg"></div>
 	<nav class="row navbar">
 		<div class="col s2 menu">
 			<!-- Dropdown Trigger -->
@@ -26,7 +38,7 @@
 			<!-- Dropdown Structure -->
 			<ul id='menu-dropdown' class='dropdown-content'>
 				<li><a class="dropdown-constant" href="#!">Home</a></li>
-				<li><a class="dropdown-constant" href="#!">Login</a></li>
+				<li><a id="login" class="dropdown-constant" href="#login-modal">Login</a></li>
 				<li><a class="dropdown-constant" href="#about">Who we are</a></li>
 				<li><a class="nest-trigger" href="#products">Our Products</a></li>
 				<li class="nest-dropdown">
