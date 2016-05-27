@@ -58,5 +58,11 @@
 			}, 100);
 		}, 50);
 	});
+	$('#form01').submit(function(){
+		var name = document.getElementById('email-form01');
+		name = name.value;
+		$('#display-name').append("<p>Hi, " + name + "</p>");
+		return false
+	});
 })
 ();
