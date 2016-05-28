@@ -27,16 +27,31 @@ img
 
 nav
 	+box-reset
+	margin-bottom: 0 !important
 
-header
+.header
 	padding: 100px 0
 
-header img
+.header img
 	width: 100%
-	max-width: 593px
+	max-width: 705px
+
+.header .l6,
+.header .m8
+	margin: 0 auto
+	float: inherit
+	text-align: center
+
+.header h3
+	color: $type-black
+	font-weight: 300
+	line-height: 34px
 
 footer
 	background-color: $h1-blue
+	height: 100%
+	width: 100%
+	position: fixed
 	margin: 0 auto !important
 	min-height: 45px
 	padding: 0 50px
@@ -298,8 +313,24 @@ footer h4
 .menu a
 	line-height: 0
 
-.menu p
+.menu p,
+.hidden h6
 	color: $type-black
+
+.hidden
+	overflow: hidden
+	position: absolute
+	top: 4.2%
+	left: 6%
+	width: 150px
+
+.hidden h6
+	display: inline
+	+reset
+	position: relative
+	float: left
+	left: -40px
+	transition: left 0.5s ease
 
 .left
 	text-align: left
@@ -338,6 +369,13 @@ footer h4
 .paragraph-left
 	@extend .paragraph-right
 	float: left
+
+.carousel.carousel-slider .carousel-item
+	transform: translateY(0)!important
+.xcard
+	background: $bg-white-two
+	border-top: 1px solid $border-grey
+	border-bottom: 1px solid $border-grey
 
 .partner-logos h1
 	text-align: center
@@ -403,7 +441,7 @@ footer p
 		width: 100%
 
 @media screen and (max-width: 600px)
-	header
+	.header
 		padding: 10% 0
 
 	form
