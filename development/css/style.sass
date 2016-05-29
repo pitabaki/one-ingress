@@ -51,7 +51,7 @@ footer
 	background-color: $h1-blue
 	height: 100%
 	width: 100%
-	position: fixed
+	position: absolute
 	margin: 0 auto !important
 	min-height: 45px
 	padding: 0 50px
@@ -320,7 +320,6 @@ footer h4
 .hidden
 	overflow: hidden
 	position: absolute
-	top: 4.2%
 	left: 6%
 	width: 150px
 
@@ -331,6 +330,10 @@ footer h4
 	float: left
 	left: -40px
 	transition: left 0.5s ease
+
+.menu-button
+	+muscle-flex
+	margin-top: 10px
 
 .left
 	text-align: left
@@ -406,6 +409,9 @@ footer p
 		margin-left: 0 !important
 		margin-right: -150px !important
 
+	.hidden
+		left: 8%
+
 @media screen and (max-width: 1024px)
 	.nest-dropdown
 		min-height: 150px !important
@@ -439,6 +445,25 @@ footer p
 	.paragraph-right,
 	.paragraph-left
 		width: 100%
+
+	.hidden
+		left: 8%
+
+	.menu-button
+		display: block
+		margin-top: 0
+
+	.menu-button a,
+	.logo a
+		display: inline-block
+		vertical-align: middle
+
+@media screen and (max-width: 767px)
+	.logo img
+		width: 80%
+
+	.hidden
+		display: none
 
 @media screen and (max-width: 600px)
 	.header

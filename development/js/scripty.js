@@ -1,5 +1,7 @@
 (function(){
     'use strict';
+
+    //Background Fade Function
     function bgFade(){
         $('#black-bg').css({
             "opacity":"0"
@@ -20,7 +22,6 @@
             }, 100);
         }, 50);
     }
-    console.log(document.getElementById('menu'));
     $('#menu-icon').hover(function(){
     	$('#menu-id').css({
     		'left': '0'
