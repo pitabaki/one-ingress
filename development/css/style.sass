@@ -30,7 +30,7 @@ nav
 	margin-bottom: 0 !important
 
 .header
-	padding: 100px 0
+	padding: 80px 0
 
 .header img
 	width: 100%
@@ -49,12 +49,11 @@ nav
 
 footer
 	background-color: $h1-blue
-	height: 100%
 	width: 100%
 	position: absolute
 	margin: 0 auto !important
 	min-height: 45px
-	padding: 0 50px
+	padding: 0 50px 40px
 
 h1
 	font-family: $head-copy
@@ -72,7 +71,19 @@ h3
 	color: $h3-blue
 	+reset
 
-p
+h5,
+h6
+	margin: 0 auto !important
+
+h5
+	font-size: 21px
+	line-height: 28px
+h6
+	font-size: 18px
+	line-height: 22px
+
+p,
+li
 	font-size: 15px
 	font-weight: 400
 	line-height: 20px
@@ -155,7 +166,7 @@ section
 	margin-right: 14px
 
 .icon > a > img
-	margin-top: 10px !important
+	margin-top: 6px !important
 
 .icon-arrow
 	padding: 4px !important
@@ -165,6 +176,32 @@ section
 
 .icon-arrow:hover
 	background-color: $h3-blue-shade
+
+.arrow
+	display: inline-block
+	margin: 14px !important
+	padding: 12px !important
+	border: 1px solid $border-grey
+	font-size: 0
+	line-height: 0
+	+border-radius(24px)
+
+.arrow img
+	width: inherit !important
+	max-width: 12px !important
+	vertical-align: middle
+
+.arrow:hover
+	background-color: $border-grey
+
+.down-arrow img
+	+rotation(90deg)
+
+.right-arrow img
+	+rotation(0deg)
+
+.left-arrow img
+	+rotation(180deg)
 
 form
 	margin: 18% 10% 0%
@@ -320,20 +357,34 @@ footer h4
 .hidden
 	overflow: hidden
 	position: absolute
-	left: 6%
+	left: 5.5%
 	width: 150px
 
 .hidden h6
 	display: inline
 	+reset
 	position: relative
+	margin-top: 8% !important
 	float: left
-	left: -40px
+	left: -45px
 	transition: left 0.5s ease
 
 .menu-button
 	+muscle-flex
 	margin-top: 10px
+
+.section-white,
+.section-grey
+	margin-top: 0
+	margin-bottom: 0 !important
+	padding: 80px 0
+	background-color: $why-white
+
+.section-grey
+	background-color: $bg-white
+
+.section-grey img
+	margin: 10% auto !important
 
 .left
 	text-align: left
@@ -358,8 +409,43 @@ footer h4
 	margin-top: 2% !important
 	margin-left: -100px !important
 	width: 100%
+
+.laptop img
 	max-width: 608px
 
+.iphone
+	padding: 0 12% 0 !important
+
+.iphone img
+	max-width: 200px
+	float: left
+
+.membership-pricing
+	padding: 40px !important
+	background-color: $true-white
+	border: 1px solid $border-grey
+
+.membership-pricing h5,
+.membership-pricing h6
+	color: $h3-blue
+
+.membership-pricing li
+	line-height: 22px
+	text-align: left
+
+ul>li>ul
+	padding-left: 3rem
+
+ul>li>ul>li
+	list-style-type: disc
+
+.membership-link
+	float: none
+	padding: 20px 0 !important
+
+.membership-link .mid-right
+	float: left
+	
 .right-artwork img
 	margin-left: 0 !important
 	margin-right: -100px !important
@@ -375,6 +461,7 @@ footer h4
 
 .carousel.carousel-slider .carousel-item
 	transform: translateY(0)!important
+
 .xcard
 	background: $bg-white-two
 	border-top: 1px solid $border-grey
@@ -411,6 +498,9 @@ footer p
 
 	.hidden
 		left: 8%
+
+	.hidden h6
+		margin-top: 8% !important
 
 @media screen and (max-width: 1024px)
 	.nest-dropdown
@@ -455,7 +545,6 @@ footer p
 
 	.menu-button a,
 	.logo a
-		display: inline-block
 		vertical-align: middle
 
 @media screen and (max-width: 767px)
