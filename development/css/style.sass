@@ -2,6 +2,7 @@
 @import mixins
 
 body
+	position: absolute
 	background-color: $bg-white
 	height: 100%
 	width: 100%
@@ -28,6 +29,13 @@ img
 nav
 	+box-reset
 	margin-bottom: 0 !important
+	position: fixed
+	z-index: 8675309
+
+.navbar
+	margin-top: 0 !important
+	background-color: $true-white
+	height: 90px
 
 .header
 	padding: 80px 0
@@ -110,11 +118,11 @@ section
 .modal.bottom-sheet
 	bottom: 0%
 
-#form01
+.sign-form
 	margin-top: 0%
 	margin-bottom: 2%
 
-#form01 fieldset
+.sign-form fieldset
 	margin: 4% 20% 8% !important
 
 #login-modal
@@ -122,6 +130,10 @@ section
 	z-index: 23
 	transition: all 0.75s ease
 
+#form-signin,
+#form-signup
+	display: none
+	
 #black-bg
 	height: 100%
 	width: 100%
@@ -131,9 +143,6 @@ section
 	opacity: 0
 	z-index: 1
 	transition: opacity 0.75s ease
-
-.navbar
-	margin-top: 0 !important
 
 .row
 	margin-top: 80px
@@ -335,14 +344,11 @@ footer h4
 	line-height: inherit
 	min-height: 0
 
-.navbar
-	background-color: $true-white
-	height: 90px
-
 .logo img
 	+reset
 	display: block
 	padding-top: 20px !important
+	max-width: 254px
 
 .menu
 	padding-top: 20px !important
@@ -433,10 +439,10 @@ footer h4
 	line-height: 22px
 	text-align: left
 
-ul>li>ul
+.membership-pricing ul>li>ul
 	padding-left: 3rem
 
-ul>li>ul>li
+.membership-pricing ul>li>ul>li
 	list-style-type: disc
 
 .membership-link
@@ -546,6 +552,10 @@ footer p
 	.menu-button a,
 	.logo a
 		vertical-align: middle
+
+	.iphone img
+		margin-top: 20px !important
+		float: none
 
 @media screen and (max-width: 767px)
 	.logo img

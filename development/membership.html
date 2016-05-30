@@ -67,13 +67,24 @@ remains the same through all HTML files
 			</div>
 		</nav>
 
+<!-- Sign In/Sign Up Forms (can be built with REACT)-->
+
 		<div id="login-modal" class="modal bottom-sheet">
 			<div class="modal-content">
-				<form id="form01" action="#">
+				
+				<form id="form-signin" class="sign-form" action="#">
 					<fieldset>
-						<input class="full-width" id="username-form01" type="text" name="username" placeholder="Username" required/>
-						<input class="full-width" id="password-form01" type="text" name="password" placeholder="Password" required/>
-						<input class="full-width" id="submit-form01" type="submit" name="name" value="Sign In" required/>
+						<input class="full-width" id="username-form-signin" type="text" name="username" placeholder="Username" required/>
+						<input class="full-width" id="password-form-signin" type="text" name="password" placeholder="Password" required/>
+						<input class="full-width" id="submit-form-signin" type="submit" name="name" value="Sign In" required/>
+					</fieldset>
+				</form>
+				<form id="form-signup" class="sign-form" action="#">
+					<fieldset>
+						<input class="full-width" id="name-form-signup" type="text" name="name" placeholder="Full name" required/>
+						<input class="half-width input-left" id="email-form-signup" type="text" name="email" placeholder="Email address" required/>
+						<input class="half-width input-right" id="password-form-signup" type="text" name="password" placeholder="Password" required/>
+						<input class="full-width" id="submit-form-signup" type="submit" name="name" value="Sign up for free now" required/>
 					</fieldset>
 				</form>
 			</div>
@@ -81,6 +92,8 @@ remains the same through all HTML files
 		<div id="black-bg"></div>
 
 	</header>
+
+<!-- End Sign In/Sign Up Forms-->
 
 <!-- end Header/NAV -->
 
@@ -159,7 +172,7 @@ remains the same through all HTML files
 				Let's Talk Membership Pricing
 			</h1>
 		</div>
-		<div class="col s12 m12 l6 center membership-pricing">
+		<div class="col s10 m8 l6 center membership-pricing">
 			<h6>
 				Standard Membership Plan
 			</h6>
@@ -182,10 +195,10 @@ remains the same through all HTML files
 			</ul>
 			<div class="outer-left membership-link">
 				<div class="mid-left">
-					<a href="membership.html">Sign Up</a>
+					<a class="signup-arrow" href="#!">Sign Up</a>
 				</div>
 				<div class="mid-right icon">
-					<a href="membership.html"><img class="icon-arrow" src="img/icon_blue_arrow.png" /></a>
+					<a class="signup-arrow" href="#!"><img class="icon-arrow" src="img/icon_blue_arrow.png" /></a>
 				</div>
 			</div>
 		</div>

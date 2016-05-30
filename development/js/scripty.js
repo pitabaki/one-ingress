@@ -1,8 +1,33 @@
 (function(){
     'use strict';
 
-    //Background Fade Function
-    function bgFade(){
+
+    //Background Fade In + Form Function
+    function bgFadeIn(form){
+        $('#black-bg').css({
+            "display":"block"
+        });
+        setTimeout(function(){
+            $('#black-bg').css({
+                'opacity':'0.7'
+            });
+        }, 50);
+        setTimeout(function(){
+            $('#login-modal').css({
+                'display':'block',
+            });
+            $(form).css({
+                'display': 'block'
+            });
+            setTimeout(function(){
+                $('#login-modal').css({
+                    'bottom':'0%'
+                });
+            }, 50);
+        }, 50);   
+    }
+    //Background Fade Out Function
+    function bgFadeOut(){
         $('#black-bg').css({
             "opacity":"0"
         });
@@ -18,6 +43,9 @@
             setTimeout(function(){
                 $('#login-modal').css({
                     'display':'none'
+                });
+                $('.sign-form').css({
+                    'display': 'none'
                 });
             }, 100);
         }, 50);
@@ -63,43 +91,30 @@
         return false;
     });
     $('#login').click(function(){
-        $('#black-bg').css({
-            "display":"block"
-        });
-        setTimeout(function(){
-            $('#black-bg').css({
-                'opacity':'0.7'
-            });
-        }, 50);
-        setTimeout(function(){
-            $('#login-modal').css({
-                'display':'block',
-            });
-            setTimeout(function(){
-                $('#login-modal').css({
-                    'bottom':'0%'
-                });
-            }, 50);
-        }, 50);
+        bgFadeIn('#form-signin');
         return true;
         /*$('.modal').css({
             'bottom':'0%'
         });*/
     });
+    $('.signup-arrow').click(function(){
+        bgFadeIn('#form-signup');
+        return false;
+    })
     $("#black-bg").click(function(){
-    	bgFade();
+    	bgFadeOut();
     });
-    $('#form01').submit(function(){
-        var name = document.getElementById('username-form01');
+    $('#form_signin').submit(function(){
+        var name = document.getElementById('username-form-signin');
         name = name.value;
 
         var displayChillins = $('#display-name').children();
         if(displayChillins.length === 0){
         	$('#display-name').append("<p id='user-id'>Hi, " + name + "</p>");
-        	bgFade();
+        	bgFadeOut();
         }else{
         	$('#user-id').text("Hi, " + name);
-        	bgFade();
+        	bgFadeOut();
         }
         return false;
     });
