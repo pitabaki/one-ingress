@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="1Ingress Website">
+	<title>1Ingress | Products</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.jpg" sizes="16x16" />
+	<link rel="icon" type="image/x-icon" href="img/favicon.jpg" sizes="16x16" />
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+	<!-- build:css -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/materialize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- endbuild -->
+</head>
+<body>
+
+<!-- Header/NAV 
+
+remains the same through all HTML files 
+
+-->
+	<header>
+
+		<nav class="row navbar">
+			<div class="col s2 menu">
+				<!-- Dropdown Trigger -->
+				<div class="hidden"><h6 id="menu-id">Menu</h6></div>
+				<a id="menu-icon" class='dropdown-button btn icon-btn' href='#' data-activates='menu-dropdown'>
+					<img src="img/icon_menu.png" alt="hamburger" />
+				</a>
+
+				<!--<a class='dropdown-button btn icon-btn' href='#' data-activates='dropdown1'>
+					<img src="img/icon_login.png" alt="hamburger" />
+				</a>-->
+
+				<!-- Dropdown Structure -->
+				<ul id='menu-dropdown' class='dropdown-content'>
+					<li><a class="dropdown-constant" href="index.html">Home</a></li>
+					<li><a id="login" class="dropdown-constant" href="#login-modal">Login</a></li>
+					<li><a class="dropdown-constant" href="#about">Who we are</a></li>
+					<li><a class="nest-trigger" href="products.html">Our Products</a></li>
+					<li class="nest-dropdown">
+						<ul>
+							<li><a href="#!">Interactive Business Suite</a></li>
+							<li><a href="#!">Interactive Educational Suite</a></li>
+							<li><a href="#!">Interactive Travel Suite</a></li>
+							<li><a href="#!">Reductions and Markdown Suite</a></li>
+							<li><a href="#!">Multi-purpose Admittance Card</a></li>
+						</ul>
+					</li>
+					<li><a class="dropdown-constant" href="membership.html">Membership Perks</a></li>
+					<li><a class="dropdown-constant" href="#site-map">Contact Us</a></li>
+				</ul>
+			</div>
+			<div class="col s8 logo">
+				<a href="#"><img src="img/logo_1Ingress.jpg" alt="1ingress" /></a>
+			</div>
+			<div id="display-name" class="col s12 m2 menu">
+				<!--<p>Hi, Someone</p>-->
+			</div>
+		</nav>
+
+<!-- Sign In/Sign Up Forms (can be built with REACT)-->
+
+		<div id="login-modal" class="modal bottom-sheet">
+			<div class="modal-content">
+				
+				<form id="form-signin" class="sign-form" action="#">
+					<fieldset>
+						<input class="full-width" id="username-form-signin" type="text" name="username" placeholder="Username" required/>
+						<input class="full-width" id="password-form-signin" type="text" name="password" placeholder="Password" required/>
+						<input class="full-width" id="submit-form-signin" type="submit" name="name" value="Sign In" required/>
+					</fieldset>
+				</form>
+				<form id="form-signup" class="sign-form" action="#">
+					<fieldset>
+						<input class="full-width" id="name-form-signup" type="text" name="name" placeholder="Full name" required/>
+						<input class="half-width input-left" id="email-form-signup" type="text" name="email" placeholder="Email address" required/>
+						<input class="half-width input-right" id="password-form-signup" type="text" name="password" placeholder="Password" required/>
+						<input class="full-width" id="submit-form-signup" type="submit" name="name" value="Sign up for free now" required/>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div id="black-bg"></div>
+
+	</header>
+
+<!-- End Sign In/Sign Up Forms-->
+
+<!-- end Header/NAV -->
+
+<!-- Header Image/ First Section -->
+
+	<section class="row header">
+		<div class="col s12 m8 l6">
+			<h3>Our suites are compromised of specialized applications which fit your personal needs, and or for your business. Take a peek at what we offer.</h3>
+
+			<a class="arrow down-arrow" href="#product-list">
+				<img src="img/icon_arrow_down.png" alt="1INGRESS artwork" />
+			</a>
+		</div>
+	</section>
+
+<!-- End Header Image/ First Section -->
+
+	<section class="row product-summaries">
+		<div class="col s12 m12 l8 center">
+			<img src="img/artwork-main-education.png" alt="education">
+			<h2>Interactive Space for Learning &amp; Success</h2>
+			<p>The Interactive Education Suite (IES) provides members with resources and tools needed for educational success and career development. Members will be furnished training, tools, and career counseling that will strengthen and enhance education, earning potential, and job skills required in today’s workforce.</p>
+			<div class="outer-center">
+				<div class="mid-left">
+					<a href="products.html">See our Suites </a>
+				</div>
+				<div class="mid-left icon">
+					<a href="products.html"><img class="icon-arrow" src="img/icon_blue_arrow.png" /></a>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- Product List -->
+
+	<section id="product-list" class="row section-white">
+		<div class="col s12 m6 l4 product-list">
+			<div class="suite-card-contents suite-card-intro">
+				<div class="contents">
+					<h2>
+						Explore our Suites with ease.
+					</h2>
+					<div>
+						<p>
+							Click on a suite and begin exploring the interactive experience.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- OLD FORMAT SAVED IN CASE OF REGRESSION
+		<div class="col s12 m6 l4 suite-card">
+			<div class="suite-card-contents" data-product="education">
+				<a href="#!">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-books.png" alt="books">
+					</div>
+					<h4>
+						Interactive Education Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Provides members with resources and tools needed for educational success and career development.
+						</p>
+						<a href="#!"><img src="img/icon-product-arrow.png" alt=""></a>
+					</div>
+				</a>
+			</div>
+		</div>-->
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="education">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-books.png" alt="books">
+					</div>
+					<h4>
+						Interactive Education Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Provides members with resources and tools needed for educational success and career development.
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="marketing">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-megaphone.png" alt="megaphone">
+					</div>
+					<h4>
+						Interactive Education Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Click on a suite and begin exploring the interactive experience.
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="business">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-business.png" alt="business">
+					</div>
+					<h4>
+						Interactive Business Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Provides solutions to business owners in any stage of existence (established, growing, start-up). 
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="travel">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-travel.png" alt="travel">
+					</div>
+					<h4>
+						Interactive Travel &amp; Lodging Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Designed specifally for blah blah blah blah blah.
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="promotions">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-promotions.png" alt="promotions">
+					</div>
+					<h4>
+						Interactive Promotions &amp; Events Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Provides products and services in direct correlation to promotions for major events.
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="sales">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-sales.png" alt="sales">
+					</div>
+					<h4>
+						Interactive Global Sales Network
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Provides clients with advertising consulting services similar to that of an advertising agency.
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="e-commerce">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-e-commerce.png" alt="e-commerce">
+					</div>
+					<h4>
+						Interactive E-Commerce Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Provides fully developed, pre-approved financial and cashless solutions.
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+		<div class="col s12 m6 l4 suite-card">
+			<a href="#!">
+				<span class="suite-card-contents" data-product="advertising">
+					<div class="suite-artwork">
+						<img src="img/artwork-product-advertising.png" alt="advertising">
+					</div>
+					<h4>
+						Interactive Advertising &amp; Media Suite
+					</h4>
+					<div class="suite-card-paragraph">
+						<p>
+							Business-to-business and business to consumer advertising campaigns
+						</p>
+						<img src="img/icon-product-arrow.png" alt="">
+					</div>
+				</span>
+			</a>
+		</div>
+	</section>
+
+<!-- End Product List -->
+
+	<section class="row section-white-two trial-form">
+		<div class="col s12 m12 l6 center">
+			<h3>
+				Receive your free 14-day access to the suites!
+			</h3>
+			<form id="form03" class="bottom-form" action="#">
+				<fieldset>
+					<input class="full-width" id="name-form03" type="text" name="name" placeholder="Full name" required/>
+					<input class="half-width input-left" id="email-form03" type="text" name="email" placeholder="Email address" required/>
+					<input class="half-width input-right" id="password-form03" type="text" name="password" placeholder="Password" required/>
+					<input class="full-width" id="submit-form03" type="submit" name="name" value="Submit" required/>
+				</fieldset>
+			</form>
+		</div>
+	</section>
+
+<!-- Footer 
+
+remains the same through all HTML files 
+
+-->
+
+	<footer id="site-map" class="row">
+		<div class="col s12 m6 l3">
+			<h4>Company</h4>
+			<ul>
+				<li><a href="#!">About Us</a></li>
+				<li><a href="#!">Login</a></li>
+				<li><a href="#!">Products</a></li>
+				<li><a href="#!">Membership</a></li>
+			</ul>
+		</div>
+		<div class="col s12 m6 l3">
+			<h4>Support</h4>
+			<ul>
+				<li><a href="#!">Get Started</a></li>
+				<li><a href="#!">Contact</a></li>
+				<li><a href="#!">Documentation</a></li>
+				<li><a href="#!">Privacy &amp; Terms</a></li>
+			</ul>
+		</div>
+		<div class="col s12 m6 l3">
+			<h4>Partners and Vendors</h4>
+			<ul>
+				<li><a href="#!">Aguilar Agency</a></li>
+				<li><a href="#!">World Christian Agency</a></li>
+				<li><a href="#!">Credit Coaching</a></li>
+				<li><a href="#!">Laughlin Group</a></li>
+				<li><a href="#!">Rex Key &amp; Security</a></li>
+			</ul>
+		</div>
+		<div class="col s12 m6 l3">
+			<h4>Connect</h4>
+			<p>1 Ingress Corporation<br>1255 Treat Blvd Ste. 300<br>Walnut Creek, CA 94597<br>+1 925.800.3456<br>info@1ingress.com</p>
+		</div>
+	</footer>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/scripty-min.js"></script>
+
+<!-- End Footer -->
+
+</body>
+</html>

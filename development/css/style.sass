@@ -72,12 +72,22 @@ h1
 	+reset
 	text-transform: uppercase
 
+h2
+	font-size: 36px
+	line-height: 46px
+	color: $h2-black
+
 h3
 	font-size: 25px
 	line-height: 30px
 	font-weight: 400
 	color: $h3-blue
 	+reset
+
+h4
+	font-size: 22px
+	line-height: 30px
+	color: $h2-black
 
 h5,
 h6
@@ -133,7 +143,7 @@ section
 #form-signin,
 #form-signup
 	display: none
-	
+
 #black-bg
 	height: 100%
 	width: 100%
@@ -158,14 +168,19 @@ section
 	@extend .outer-left
 	float: left
 
+.outer-center
+	display: inline-block
+
 .outer-right > .mid-left,
-.outer-left > .mid-left
+.outer-left > .mid-left,
+.outer-center > .mid-left
 	display: flex
 	margin-right: 14px
 	float: left
 
 .outer-right > .mid-right,
-.outer-left > .mid-right
+.outer-left > .mid-right,
+.outer-center > .mid-right
 	@extend .mid-left
 	margin-right: 0
 	float: right
@@ -217,7 +232,6 @@ form
 
 fieldset
 	border: 0
-	background-color: $bg-white
 	+reset
 
 input
@@ -380,11 +394,18 @@ footer h4
 	margin-top: 10px
 
 .section-white,
+.section-white-two,
 .section-grey
 	margin-top: 0
 	margin-bottom: 0 !important
 	padding: 80px 0
 	background-color: $why-white
+
+.section-white
+	background-color: $bg-white
+
+.section-white-two
+	background-color: $bg-white-two
 
 .section-grey
 	background-color: $bg-white
@@ -481,6 +502,115 @@ footer h4
 	vertical-align: middle
 	margin: 4% !important
 
+.suite-card
+	padding: 10px !important
+
+.suite-card-contents
+	display: inline-block
+	padding: 10px 40px
+	height: 410px
+
+.suite-card-intro
+	padding: 0
+	display: flex
+	align-items: center
+
+.suite-artwork
+	height: 170px
+	margin-bottom: 20px
+
+.suite-artwork img
+	padding-top: 40px !important
+	vertical-align: bottom
+	max-height: 170px
+	max-width: 158px
+
+.suite-card-paragraph>img
+	display: inline-block
+	padding: 0 !important
+	float: left
+	transition: padding-left 0.5s ease
+
+.suite-card-paragraph>a>img:hover
+	padding-left: 10px !important
+
+.suite-card-paragraph p,
+.suite-card-paragraph a,
+.suite-card-contents h4
+	display: inline-block
+	margin: 2% 0 !important
+
+.suite-card-paragraph p
+	margin-bottom: 5px
+
+[data-product]
+	transition: background-color 0.5s ease
+
+[data-product="education"]
+	background-color: #add35c
+
+[data-product="marketing"]
+	background-color: #fcb03b
+
+[data-product="business"]
+	background-color: #3cb878
+
+[data-product="travel"]
+	background-color: #4cc2c0
+
+[data-product="promotions"]
+	background-color: #f68962
+
+[data-product="sales"]
+	background-color: #4bb8e9
+
+[data-product="e-commerce"]
+	background-color: #a26ff7
+
+[data-product="advertising"]
+	background-color: #e55465
+
+[data-product="education"]:hover
+	background-color: #83be04
+
+[data-product="marketing"]:hover
+	background-color: #ec8f00
+
+[data-product="business"]:hover
+	background-color: #08af59
+
+[data-product="travel"]:hover
+	background-color: #00b5b2
+
+[data-product="promotions"]:hover
+	background-color: #e9541f
+
+[data-product="sales"]:hover
+	background-color: #0596d7
+
+[data-product="e-commerce"]:hover
+	background-color: #6819ec
+
+[data-product="advertising"]:hover
+	background-color: #d8172e
+
+.trial-form
+	border-top: 1px solid $border-grey
+
+.product-summaries
+	margin: 0 auto
+	margin-bottom: 0 !important
+	max-height: 0
+	padding: 0
+	overflow: hidden
+	background-color: $bg-white-two
+	border-top: 1px solid $border-grey
+	border-bottom: 1px solid $border-grey
+	transition: max-height 0.5s ease
+
+.product-summaries>.center
+	margin: 80px auto
+
 footer li>a,
 footer p
 	color: $true-white
@@ -508,12 +638,27 @@ footer p
 	.hidden h6
 		margin-top: 8% !important
 
+	.suite-card-contents
+		padding: 10px 20px
+		height: 410px
+
+	.suite-card-intro
+		padding: 20px
+
+	.suite-artwork img
+		padding-top: 20px !important
+
 @media screen and (max-width: 1024px)
 	.nest-dropdown
 		min-height: 150px !important
 
+	.suite-card
+		padding: 10px 20px !important
+
+
 @media screen and (min-width: 993px)
-	.description
+	.description,
+	.product-list
 		padding: 0 50px !important
 
 @media screen and (max-width: 993px)

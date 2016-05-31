@@ -80,6 +80,8 @@
     });
 
     //UX Implementation: For Mobile Users, click functionality is necessary
+    //Removed because it interfered with accessing the product page
+    /*
     $('.nest-trigger').click(function(){
         var nestDropdown = $('.nest-dropdown');
         var height = nestDropdown.css('min-height');
@@ -89,7 +91,8 @@
             $('.nest-dropdown').css('cssText', 'min-height: 150px !important;');
         }
         return false;
-    });
+    });*/
+    
     $('#login').click(function(){
         bgFadeIn('#form-signin');
         return true;
@@ -125,7 +128,7 @@
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
           if (target.length) {
             $('html,body').animate({
-              scrollTop: target.offset().top
+              scrollTop: target.offset().top - 80
             }, 500);
             return false;
             }
