@@ -60,7 +60,7 @@ footer
 	width: 100%
 	position: absolute
 	margin: 0 auto !important
-	min-height: 45px
+	min-height: 350px
 	padding: 0 50px 40px
 
 h1
@@ -401,9 +401,6 @@ footer h4
 	padding: 80px 0
 	background-color: $why-white
 
-.section-white
-	background-color: $bg-white
-
 .section-white-two
 	background-color: $bg-white-two
 
@@ -505,6 +502,9 @@ footer h4
 .suite-card
 	padding: 10px !important
 
+.suite-card a
+	display: inline-block
+
 .suite-card-contents
 	display: inline-block
 	padding: 10px 40px
@@ -527,7 +527,7 @@ footer h4
 
 .suite-card-paragraph>img
 	display: inline-block
-	padding: 0 !important
+	+reset
 	float: left
 	transition: padding-left 0.5s ease
 
@@ -610,6 +610,27 @@ footer h4
 
 .product-summaries>.center
 	margin: 80px auto
+
+.vision,
+.vision p,
+.vision img
+	+reset
+
+.vision img
+	margin: 40px auto !important
+
+.about-us a
+	display: inherit
+	margin: 10%
+
+.about-us>a>img
+	+reset
+
+.about-right>a>img
+	float: right
+
+.about-left>a>img
+	float: left
 
 footer li>a,
 footer p
@@ -708,6 +729,12 @@ footer p
 
 	.hidden
 		display: none
+
+	.about-right>a>img
+		float: none
+
+	.about-left>a>img
+		float: none
 
 @media screen and (max-width: 600px)
 	.header

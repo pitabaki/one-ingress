@@ -134,6 +134,10 @@
             }
           }
     });
+    $('.suite').click(function(){
+        var type = $(this).data('product');
+        console.log(type);
+    });
     $(document).ready(function(){
         $('.carousel').carousel({full_width: true});
     });
