@@ -619,18 +619,54 @@ footer h4
 .vision img
 	margin: 40px auto !important
 
+.about-intro
+	margin-bottom: 80px !important
+
 .about-us a
 	display: inherit
 	margin: 10%
 
-.about-us>a>img
+.about-us>a>span
 	+reset
 
-.about-right>a>img
+.about-right>a>span
 	float: right
 
-.about-left>a>img
+.about-left>a>span
 	float: left
+
+.bigwigs
+	display: inline-block
+	background: url('../img/artwork-about-bigwigs.png') no-repeat 0 0
+	width: 175px
+	height: 203px
+
+.about-right .bigwigs
+	float: right
+	margin: 40px
+
+.about-left .bigwigs
+	float: left
+	margin: 40px
+
+[data-product="keith-jordan"]
+	background-position: 0 0
+
+[data-product="ronald-tasse"]
+	background-position: -175px 0
+
+[data-product="millard-larkin"]
+	background-position: -350px 0
+
+[data-product="taz-hardy"]
+	background-position: -525px 0
+
+[data-product="tommie-moon"]
+	background-position: -700px 0
+
+[data-product="dezebee-miles"]
+	background-position: -875px 0
+
 
 footer li>a,
 footer p
@@ -752,3 +788,14 @@ footer p
 
 	#display-name
 		display: none
+
+	.bigwigs
+		display: block
+
+	.about-right .bigwigs
+		float: none
+		margin: 40px auto
+
+	.about-left .bigwigs
+		float: none
+		margin: 40px auto
