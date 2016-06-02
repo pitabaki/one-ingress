@@ -1,6 +1,13 @@
 function init(){
     'use strict';
 
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    bgFadeIn/Out built to reduce repetitive code
+
+    //////////////////////////////////////////////////
+    *************************************************/
 
     //Background Fade In + Form Function
     function bgFadeIn(form){
@@ -50,6 +57,15 @@ function init(){
             }, 100);
         }, 50);
     }
+
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Function to show/hide "menu" on homepage
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
     $('#menu-icon').hover(function(){
         $('#menu-id').css({
             'left': '0'
@@ -59,6 +75,16 @@ function init(){
             'left': '-45px'
         });
     });
+
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Operates dropdown. The method and object are
+    controlled by materialize.js
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
     $('.dropdown-button').dropdown({
         inDuration: 500,
         outDuration: 225,
@@ -93,12 +119,17 @@ function init(){
         return false;
     });*/
     
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Fade in/out pop-up forms
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
     $('#login').click(function(){
         bgFadeIn('#form-signin');
         return true;
-        /*$('.modal').css({
-            'bottom':'0%'
-        });*/
     });
     $('.signup-arrow').click(function(){
         bgFadeIn('#form-signup');
@@ -121,6 +152,15 @@ function init(){
         }
         return false;
     });
+
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Operates in-document navigation
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
     $('.down-arrow').click(function(){
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 
@@ -134,13 +174,28 @@ function init(){
             }
           }
     });
+
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Functions to operate the product page's suite section
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
     $('.suite').click(function(){
         var type = $(this).data('product');
         console.log(type);
     });
-    $(document).ready(function(){
-        $('.carousel').carousel({full_width: true});
-    });
+
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Functions to operate the about page's bio section
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
     $('.bigwigs').hover(function(){
         var bigwig = $(this).data('bigwig'),
             anchor = $(this);
@@ -158,9 +213,16 @@ function init(){
                 "class": "about-desc",
                 html: bio
               }).appendTo( anchor );
+            setTimeout(function(){
+              $('.about-desc').css({'opacity':'1'});
+            }, 50);
         });
     }, function(){
-        $(this).empty();
+        var selected = $(this);
+        $('.about-desc').css({'opacity':'0'});
+        setTimeout(function(){
+            selected.empty();
+        }, 100);
     });
 }
 window.onload = init;
