@@ -8,7 +8,8 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass');
 
 //Placeholder array
-var fileList = ["../ajax","../css/*","../js"];
+var fileList = ['../ajax','../css/*','../js'],
+    htmlList = ['../index.html','../about-us.html','../membership.html', '../products.html'];
 
 gulp.task('sass', function () {
   gulp.src('../css/style.sass')
@@ -26,13 +27,13 @@ gulp.task('scripty', function() {
 gulp.task('massiveMerge', function() {
    var ajax = gulp.src('../ajax/*')
 		.pipe(gulp.dest('../../production/ajax'));
-   var css = gulp.src('../css/*')
+   var css = gulp.src('../css/style.css')
 		.pipe(gulp.dest('../../production/css'));
    var javascript = gulp.src('../js/*')
 		.pipe(gulp.dest('../../production/js'));
-   var index = gulp.src('../index.html')
+   var index = gulp.src(htmlList)
     .pipe(htmlReplace({
-      'css': 'css/style.min.css'
+      'css': 'css/style.css'
     }))
 		.pipe(gulp.dest('../../production'));
    var img = gulp.src('../img/*')

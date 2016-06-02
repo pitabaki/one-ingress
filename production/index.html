@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="1Ingress Website">
-	<title>1Ingress</title>
+	<title>1Ingress | Home</title>
 	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.jpg" sizes="16x16" />
 	<link rel="icon" type="image/x-icon" href="img/favicon.jpg" sizes="16x16" />
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
@@ -13,79 +13,83 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
-	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div id="login-modal" class="modal bottom-sheet">
-		<div class="modal-content">
-			<form id="modal-form" action="#">
-				<fieldset>
-					<input class="full-width" id="email" type="text" name="email" placeholder="Email address" required/>
-					<input class="full-width" id="password" type="text" name="password" placeholder="Password" required/>
-					<input class="full-width" id="name" type="submit" name="name" value="Sign up for free now" required/>
-				</fieldset>
-			</form>
-		</div>
-	</div>
-	<div id="black-bg"></div>
-	<nav class="row navbar">
-		<div class="col s2 menu">
-			<!-- Dropdown Trigger -->
-			<a class='dropdown-button btn icon-btn' href='#' data-activates='menu-dropdown'>
-				<img src="img/icon_menu.png" alt="hamburger" />
-			</a>
-			<!--<a class='dropdown-button btn icon-btn' href='#' data-activates='dropdown1'>
-				<img src="img/icon_login.png" alt="hamburger" />
-			</a>-->
 
-			<!-- Dropdown Structure -->
-			<ul id='menu-dropdown' class='dropdown-content'>
-				<li><a class="dropdown-constant" href="#!">Home</a></li>
-				<li><a id="login" class="dropdown-constant" href="#login-modal">Login</a></li>
-				<li><a class="dropdown-constant" href="#about">Who we are</a></li>
-				<li><a class="nest-trigger" href="#products">Our Products</a></li>
-				<li class="nest-dropdown">
-					<ul>
-						<li><a href="#!">Interactive Business Suite</a></li>
-						<li><a href="#!">Interactive Educational Suite</a></li>
-						<li><a href="#!">Interactive Travel Suite</a></li>
-						<li><a href="#!">Reductions and Markdown Suite</a></li>
-						<li><a href="#!">Multi-purpose Admittance Card</a></li>
-					</ul>
-				</li>
-				<li><a class="dropdown-constant" href="#membership">Membership Perks</a></li>
-				<li><a class="dropdown-constant" href="#site-map">Contact Us</a></li>
-			</ul>
-<!-- 
+<!-- Header/NAV 
 
-FIGURE THIS OUT LATER
-				<li>
-					<ul class="collapsible collapsible-accordion">
-						<li>
-							<a class="collapsible-header waves-effect" style="padding:0;">Our Products</a>
-							<div class="collapsible-body">
-								<ul>
-									<li>
-										<a href="#">Something</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</li>
+remains the same through all HTML files 
 
 -->
-			</ul>
+	<header>
+
+		<nav class="row navbar">
+			<div class="col s2 menu">
+				<!-- Dropdown Trigger -->
+				<div class="hidden"><h6 id="menu-id">Menu</h6></div>
+				<a id="menu-icon" class='dropdown-button btn icon-btn' href='#' data-activates='menu-dropdown'>
+					<img src="img/icon_menu.png" alt="hamburger" />
+				</a>
+
+				<!--<a class='dropdown-button btn icon-btn' href='#' data-activates='dropdown1'>
+					<img src="img/icon_login.png" alt="hamburger" />
+				</a>-->
+
+				<!-- Dropdown Structure -->
+				<ul id='menu-dropdown' class='dropdown-content'>
+					<li><a class="dropdown-constant" href="index.html">Home</a></li>
+					<li><a id="login" class="dropdown-constant" href="#login-modal">Login</a></li>
+					<li><a class="dropdown-constant" href="about-us.html">Who we are</a></li>
+					<li><a class="nest-trigger" href="products.html">Our Products</a></li>
+					<li class="nest-dropdown">
+						<ul>
+							<li><a href="#!">Interactive Business Suite</a></li>
+							<li><a href="#!">Interactive Educational Suite</a></li>
+							<li><a href="#!">Interactive Travel Suite</a></li>
+							<li><a href="#!">Reductions and Markdown Suite</a></li>
+							<li><a href="#!">Multi-purpose Admittance Card</a></li>
+						</ul>
+					</li>
+					<li><a class="dropdown-constant" href="membership.html">Membership Perks</a></li>
+					<li><a class="dropdown-constant" href="#site-map">Contact Us</a></li>
+				</ul>
+			</div>
+			<div class="col s8 logo">
+				<a href="#"><img src="img/logo_1ingress.jpg" alt="1ingress" /></a>
+			</div>
+			<div id="display-name" class="col s12 m2 menu">
+				<!--<p>Hi, Someone</p>-->
+			</div>
+		</nav>
+
+		<div id="login-modal" class="modal bottom-sheet">
+			<div class="modal-content">
+				<form id="form-signin" class="sign-form" action="#">
+					<fieldset>
+						<input class="full-width" id="username-form-signin" type="text" name="username" placeholder="Username" required/>
+						<input class="full-width" id="password-form-signin" type="text" name="password" placeholder="Password" required/>
+						<input class="full-width" id="submit-form-signin" type="submit" name="name" value="Sign In" required/>
+					</fieldset>
+				</form>
+			</div>
 		</div>
-		<div class="col s8 logo">
-			<a href="#"><img src="img/logo_1Ingress.jpg" alt="1ingress" /></a>
-		</div>
-	</nav>
-	<header class="row">
+		<div id="black-bg"></div>
+
+	</header>
+
+<!-- end Header/NAV -->
+
+<!-- Header Image/ First Section -->
+
+	<section class="row header">
 		<div class="col s12">
 			<img src="img/artwork_header.png" alt="1INGRESS artwork" />
 		</div>
-	</header>
+	</section>
+
+<!-- End Header Image/ First Section -->
+
 	<section id="about" class="row top-row">
 		<div class="col s12 m12 l6 description left">
 			<h1>
@@ -109,12 +113,13 @@ FIGURE THIS OUT LATER
 			</div>
 		</div>
 		<div class="col s12 m12 l6">
-			<form id="form" action="#">
+
+			<form id="form02" action="#">
 				<fieldset>
-					<input class="full-width" id="name" type="text" name="name" placeholder="Full name" required/>
-					<input class="half-width input-left" id="email" type="text" name="email" placeholder="Email address" required/>
-					<input class="half-width input-right" id="password" type="text" name="password" placeholder="Password" required/>
-					<input class="full-width" id="name" type="submit" name="name" value="Sign up for free now" required/>
+					<input class="full-width" id="name-form02" type="text" name="name" placeholder="Full name" required/>
+					<input class="half-width input-left" id="email-form02" type="text" name="email" placeholder="Email address" required/>
+					<input class="half-width input-right" id="password-form02" type="text" name="password" placeholder="Password" required/>
+					<input class="full-width" id="submit-form02" type="submit" name="name" value="Sign up for free now" required/>
 				</fieldset>
 			</form>
 			<img class="mic" src="img/icon_voice.jpg" alt="" />
@@ -130,19 +135,19 @@ FIGURE THIS OUT LATER
 			</h3>
 			<div class="paragraph-right">
 				<p>
-					Our engine will provide an infrastructure that provides communication network that will span the entire globe. With our hassle-free solutions we enhance, increase, and maximize global interactivity through safe, efficient, and organized Internet platform for business, education, marketing, security, and daily operations.
+					Our engine will provide an infrastructure that provides communication network that will span the entire globe. With our hassle-free solutions we enhance, increase, and maximize global interactivity through safe, efficient, and organized Internet platform for business, education, marketing, security, and daily operations.
 				</p>
 				<div class="outer-right">
 					<div class="mid-left">
-						<a href="#!">See our Suites </a>
+						<a href="products.html">See our Suites </a>
 					</div>
 					<div class="mid-right icon">
-						<a href="#!"><img class="icon-arrow" src="img/icon_blue_arrow.png" /></a>
+						<a href="products.html"><img class="icon-arrow" src="img/icon_blue_arrow.png" /></a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m12 l6 left-artwork">
+		<div class="col s12 m12 l6 left-artwork laptop">
 			<img src="img/artwork_laptop_left.jpg" alt="1ingress" />
 		</div>
 	</section>
@@ -160,29 +165,55 @@ FIGURE THIS OUT LATER
 				</p>
 				<div class="outer-left">
 					<div class="mid-left">
-						<a href="#">Learn more</a>
+						<a href="membership.html">Learn more</a>
 					</div>
 					<div class="mid-right icon">
-						<a href="#!"><img class="icon-arrow" src="img/icon_blue_arrow.png" /></a>
+						<a href="membership.html"><img class="icon-arrow" src="img/icon_blue_arrow.png" /></a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m12 l6 right-artwork">
+		<div class="col s12 m12 l6 right-artwork laptop">
 			<img src="img/artwork_laptop_right.jpg" alt="1ingress" />
 		</div>
 	</section>
+
+	<!-- FIX THIS LATER: CAROUSEL (REFER TO PSD) -->
+
+		<!-- ONE POSSIBLE SOLUTION: BUILD FROM SCRATCH
+		<div class="col s12">
+			<section class="row">
+				<div class="col s12">
+					<img src="img/artwork_xcard.jpg" alt="xcard icon" />
+				</div>
+			</section>
+		</div>-->
+
+	<!--
+	<section class="row xcard">
+
+
+		<div class="carousel carousel-slider">
+			<a class="carousel-item" href="#one!"><img src="http://lorempixel.com/800/400/food/1"></a>
+			<a class="carousel-item" href="#two!"><img src="http://lorempixel.com/800/400/food/2"></a>
+			<a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
+			<a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a>
+		</div>
+
+
+
+	</section>-->
 	<section class="row">
 		<div class="col s12 m12 l6 center">
 			<h3>
 				Start your trial now!
 			</h3>
-			<form id="form_02" class="bottom-form" action="#">
+			<form id="form03" class="bottom-form" action="#">
 				<fieldset>
-					<input class="full-width" id="name" type="text" name="name" placeholder="Full name" required/>
-					<input class="half-width input-left" id="email" type="text" name="email" placeholder="Email address" required/>
-					<input class="half-width input-right" id="password" type="text" name="password" placeholder="Password" required/>
-					<input class="full-width" id="name" type="submit" name="name" value="Submit" required/>
+					<input class="full-width" id="name-form03" type="text" name="name" placeholder="Full name" required/>
+					<input class="half-width input-left" id="email-form03" type="text" name="email" placeholder="Email address" required/>
+					<input class="half-width input-right" id="password-form03" type="text" name="password" placeholder="Password" required/>
+					<input class="full-width" id="submit-form03" type="submit" name="name" value="Submit" required/>
 				</fieldset>
 			</form>
 		</div>
@@ -199,6 +230,13 @@ FIGURE THIS OUT LATER
 			</div>
 		</div>
 	</section>
+
+<!-- Footer 
+
+remains the same through all HTML files 
+
+-->
+
 	<footer id="site-map" class="row">
 		<div class="col s12 m6 l3">
 			<h4>Company</h4>
@@ -236,5 +274,8 @@ FIGURE THIS OUT LATER
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/scripty-min.js"></script>
+
+<!-- End Footer -->
+
 </body>
 </html>
