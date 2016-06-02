@@ -1,4 +1,4 @@
-(function(){
+function init(){
     'use strict';
 
 
@@ -51,9 +51,9 @@
         }, 50);
     }
     $('#menu-icon').hover(function(){
-    	$('#menu-id').css({
-    		'left': '0'
-    	});
+        $('#menu-id').css({
+            'left': '0'
+        });
     }, function(){
         $('#menu-id').css({
             'left': '-45px'
@@ -103,9 +103,9 @@
     $('.signup-arrow').click(function(){
         bgFadeIn('#form-signup');
         return false;
-    })
+    });
     $("#black-bg").click(function(){
-    	bgFadeOut();
+        bgFadeOut();
     });
     $('#form_signin').submit(function(){
         var name = document.getElementById('username-form-signin');
@@ -113,11 +113,11 @@
 
         var displayChillins = $('#display-name').children();
         if(displayChillins.length === 0){
-        	$('#display-name').append("<p id='user-id'>Hi, " + name + "</p>");
-        	bgFadeOut();
+            $('#display-name').append("<p id='user-id'>Hi, " + name + "</p>");
+            bgFadeOut();
         }else{
-        	$('#user-id').text("Hi, " + name);
-        	bgFadeOut();
+            $('#user-id').text("Hi, " + name);
+            bgFadeOut();
         }
         return false;
     });
@@ -141,5 +141,26 @@
     $(document).ready(function(){
         $('.carousel').carousel({full_width: true});
     });
-})
-();
+    $('.bigwigs').hover(function(){
+        var bigwig = $(this).data('bigwig'),
+            anchor = $(this);
+        $.getJSON( "ajax/about-us.json", function( data ) {
+            var bio = [];
+            $.each(data, function( key, val){
+                console.log(val);
+                if (key == bigwig){
+                    bio.push("<span id='" + bigwig + "' class='about-inner-desc'><h6><strong>" + val.name + "</strong>, " + val.job + "</h6><p>" + val.bio + "</p></span>" );
+                    //console.log(val.name);
+                }
+            });
+            console.log(anchor);
+            $( "<span/>", {
+                "class": "about-desc",
+                html: bio
+              }).appendTo( anchor );
+        });
+    }, function(){
+        $(this).empty();
+    });
+}
+window.onload = init;

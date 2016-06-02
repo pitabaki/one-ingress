@@ -22,6 +22,9 @@ input
 	font-family: $body-copy
 	color: $type-black
 
+strong
+	font-weight: 700
+
 img
 	+reset
 	display: inherit
@@ -643,30 +646,47 @@ footer h4
 
 .about-right .bigwigs
 	float: right
-	margin: 40px
+	margin: 60px
 
 .about-left .bigwigs
 	float: left
-	margin: 40px
+	margin: 60px
 
-[data-product="keith-jordan"]
+[data-bigwig="keith-jordan"]
 	background-position: 0 0
 
-[data-product="ronald-tasse"]
+[data-bigwig="ronald-tasse"]
 	background-position: -175px 0
 
-[data-product="millard-larkin"]
+[data-bigwig="millard-larkin"]
 	background-position: -350px 0
 
-[data-product="taz-hardy"]
+[data-bigwig="taz-hardy"]
 	background-position: -525px 0
 
-[data-product="tommie-moon"]
+[data-bigwig="tommie-moon"]
 	background-position: -700px 0
 
-[data-product="dezebee-miles"]
+[data-bigwig="dezebee-miles"]
 	background-position: -875px 0
 
+.about-right>.bigwigs>.about-desc,
+.about-left>.bigwigs>.about-desc
+	display: inline-block
+	position: relative
+	background-color: $true-white
+	left: 185px
+	min-width: 400px
+	min-height: 40px
+	border: 1px solid $border-grey
+	z-index: 867530
+
+.about-left>.bigwigs>.about-desc
+	left: -410px
+
+.about-inner-desc
+	display: block
+	padding: 40px
 
 footer li>a,
 footer p
