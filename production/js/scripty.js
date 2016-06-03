@@ -178,14 +178,49 @@ function init(){
     /*************************************************
     //////////////////////////////////////////////////
 
-    Functions to operate the product page's suite section
+    Functions to operate the product pages's suite section
 
     //////////////////////////////////////////////////
     *************************************************/
+    function suiteJSON(suiteType){
+        $.getJSON("ajax/suite.json", function ( data ) {
+            var suiteInfo = [],
+                def;
 
+            $.each(data, function(key, val){
+                //console.log(val);
+                if (key == suiteType){
+                    suiteInfo.push("<img src='" + val.image + "' alt='" + val.name + "'><h2>" + val.title + "</h2><p>" + val.summary + "</p><div class='outer-center'><div class='mid-left'><a href='" + val.external + "'>Learn More </a></div><div class='mid-left icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' alt='' /></a></div></div>");
+                }/*else if(key == "def"){
+                    def = val;
+                    //console.log(def);
+                    suiteInfo.push("<img src='" + def.image + "' alt='" + def.name + "'>");
+
+                }*/
+            });
+            $( "<div/>", {
+                "class": "col s12 m12 l8 center",
+                html: suiteInfo
+            }).appendTo( '.product-summaries' );
+            setTimeout(function(){
+                $('.product-summaries').css({'max-height':'800px'});
+            }, 50);
+        });
+    }
     $('.suite').click(function(){
-        var type = $(this).data('product');
-        console.log(type);
+        var suiteType = $(this).data('product');
+        if($('.product-summaries').children().length > 0){
+            $('.product-summaries').css({'max-height':'0'});
+            setTimeout(function(){
+                $('.product-summaries').empty();
+            }, 500);
+            setTimeout(function(){
+                suiteJSON(suiteType);
+            }, 500);
+        }else{
+            suiteJSON(suiteType);
+        }
+        return false;
     });
 
     /*************************************************
@@ -202,7 +237,6 @@ function init(){
         $.getJSON( "ajax/about-us.json", function( data ) {
             var bio = [];
             $.each(data, function( key, val){
-                console.log(val);
                 if (key == bigwig){
                     bio.push("<span id='" + bigwig + "' class='about-inner-desc'><h6><strong>" + val.name + "</strong>, " + val.job + "</h6><p>" + val.bio + "</p></span>" );
                     //console.log(val.name);

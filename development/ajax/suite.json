@@ -1,0 +1,16 @@
+{
+	"def" : {
+		"name": "default",
+		"image": "../img/artwork-main-default.jpg",
+		"title": "Oops, We are still working!",
+		"summary": "We plan on launching this suite soon. Be on the look out!",
+		"external": ""
+	},
+	"education" : {
+		"name": "education",
+		"image": "../img/artwork-main-education.jpg",
+		"title": "Interactive Space for Learning &amp; Success",
+		"summary": "The Interactive Education Suite (IES) provides members with resources and tools needed for educational success and career development. Members will be furnished training, tools, and career counseling that will strengthen and enhance education, earning potential, and job skills required in today’s workforce.",
+		"external": "products.html"
+	}
+}
