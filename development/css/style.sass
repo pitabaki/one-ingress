@@ -265,7 +265,9 @@ input[type="submit"]:hover
 
 +placeholder(#999999)
 
-.center
+.center,
+.membership-slider
+	text-align: center
 	float: none !important
 	margin: 0 auto
 	margin-top: 4%
@@ -396,6 +398,7 @@ footer h4
 	+muscle-flex
 	margin-top: 10px
 
+
 .section-white,
 .section-white-two,
 .section-grey
@@ -418,6 +421,24 @@ footer h4
 
 .right
 	text-align: right
+
+footer li>a,
+footer p
+	color: $true-white
+	transition: color 0.75s ease
+
+footer li>a:hover
+	color: $h3-blue !important
+
+footer p
+	font-size: 18px
+	line-height: 32px
+
+//Index Page
+
+#membership>.left>h3
+	width: 75%
+	float: left
 
 .left-artwork
 	+reset
@@ -502,6 +523,11 @@ footer h4
 	vertical-align: middle
 	margin: 4% !important
 
+//End Index Page
+
+
+//Product Page
+
 .suite-card
 	padding: 10px !important
 
@@ -547,31 +573,32 @@ footer h4
 .suite-card-paragraph p
 	margin-bottom: 5px
 
-[data-product]
+.suite
+	background-color: #dedede
 	transition: background-color 0.5s ease
 
-[data-product="education"]
+.active[data-product="education"]
 	background-color: #add35c
 
-[data-product="marketing"]
+.active[data-product="marketing"]
 	background-color: #fcb03b
 
-[data-product="business"]
+.active[data-product="business"]
 	background-color: #3cb878
 
-[data-product="travel"]
+.active[data-product="travel"]
 	background-color: #4cc2c0
 
-[data-product="promotions"]
+.active[data-product="promotions"]
 	background-color: #f68962
 
-[data-product="sales"]
+.active[data-product="sales"]
 	background-color: #4bb8e9
 
-[data-product="e-commerce"]
+.active[data-product="e-commerce"]
 	background-color: #a26ff7
 
-[data-product="advertising"]
+.active[data-product="advertising"]
 	background-color: #e55465
 
 [data-product="education"]:hover
@@ -615,6 +642,10 @@ footer h4
 .product-summaries>.center
 	margin: 80px auto
 
+//End Product Page
+
+//About Page
+
 .vision,
 .vision p,
 .vision img
@@ -641,7 +672,7 @@ footer h4
 
 .bigwigs
 	display: inline-block
-	background: url('../img/artwork-about-bigwigs.png') no-repeat 0 0
+	background: url('..//img//artwork-about-bigwigs.png') no-repeat 0 0
 	width: 175px
 	height: 203px
 
@@ -693,17 +724,49 @@ footer h4
 	opacity: 0
 	transition: opacity 1s ease
 
-footer li>a,
-footer p
-	color: $true-white
-	transition: color 0.75s ease
+.default-img
+	margin-bottom: 0 !important
+	vertical-align: bottom
 
-footer li>a:hover
-	color: $h3-blue !important
+.default-img img
+	width: 100%
+	max-width: 973px
 
-footer p
-	font-size: 18px
-	line-height: 32px
+.default-text
+	position: absolute
+	margin-top: 10%
+	left: 14%
+	opacity: 0
+	transition: opacity 0.5s ease
+
+//End About Page
+
+
+
+//Membership Page
+
+.membership-slider
+	+reset
+	height: 420px
+
+.membership-slider img
+	+reset
+	margin-bottom: 40px
+
+.membership-slider p
+	+reset
+	margin-top: 4px
+	width: 20%
+	float: none
+	line-height: 25px
+
+.membership-slider>.row,
+.membership-slider>.row>.membership-slider
+	+reset
+	display: inline
+
+//End Membership Page
+
 
 @media screen and (max-width: 1200px)
 	.left-artwork img
@@ -796,6 +859,11 @@ footer p
 
 	.about-left>a>img
 		float: none
+
+	.default-text
+		margin: 0 auto !important
+		left: 0
+		width: 90%
 
 @media screen and (max-width: 600px)
 	.header

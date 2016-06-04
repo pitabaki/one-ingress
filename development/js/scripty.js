@@ -163,16 +163,15 @@ function init(){
 
     $('.down-arrow').click(function(){
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top - 80
-            }, 500);
-            return false;
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                  scrollTop: target.offset().top - 80
+                }, 500);
+                return false;
             }
-          }
+        }
     });
 
     /*************************************************
@@ -188,16 +187,27 @@ function init(){
                 def;
 
             $.each(data, function(key, val){
-                //console.log(val);
-                if (key == suiteType){
+                if ((key === suiteType) && (suiteType !== "def")){
                     suiteInfo.push("<img src='" + val.image + "' alt='" + val.name + "'><h2>" + val.title + "</h2><p>" + val.summary + "</p><div class='outer-center'><div class='mid-left'><a href='" + val.external + "'>Learn More </a></div><div class='mid-left icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' alt='' /></a></div></div>");
-                }/*else if(key == "def"){
-                    def = val;
-                    //console.log(def);
-                    suiteInfo.push("<img src='" + def.image + "' alt='" + def.name + "'>");
-
-                }*/
+                }
             });
+            if(suiteInfo.length < 1){
+                $.each(data, function(key, val){
+                    if(key === "def"){
+                        def = val;
+                        suiteInfo.push("<div class='default-text'><h2>Ops! We are still working!</h2><p>We plan on launching this suite soon.<br>Be on the look out!</p></div><img src='" + def.image + "' alt='Page under construction'>");
+                    }
+                });
+                $( "<div/>", {
+                    "class": "col s12 m12 l12 center default-img",
+                    html: suiteInfo
+                }).appendTo( '.product-summaries' );
+                setTimeout(function(){
+                    $('.product-summaries').css({'max-height':'800px'});
+                    $('.default-text').css({'opacity':'1'});
+                }, 50);
+                return false;
+            }
             $( "<div/>", {
                 "class": "col s12 m12 l8 center",
                 html: suiteInfo
@@ -207,19 +217,35 @@ function init(){
             }, 50);
         });
     }
+
     $('.suite').click(function(){
         var suiteType = $(this).data('product');
-        if($('.product-summaries').children().length > 0){
-            $('.product-summaries').css({'max-height':'0'});
-            setTimeout(function(){
-                $('.product-summaries').empty();
-            }, 500);
-            setTimeout(function(){
-                suiteJSON(suiteType);
-            }, 500);
-        }else{
-            suiteJSON(suiteType);
+        $('.suite').removeClass('active');
+        $(this).addClass('active');
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top - 80
+                }, 500);
+            }
         }
+        setTimeout( function () {
+            //$(this).addClass('active');
+            if($('.product-summaries').children().length > 0){
+                $('.default-text').css({'opacity':'0'});
+                $('.product-summaries').css({'max-height':'0'});
+                setTimeout(function(){
+                    $('.product-summaries').empty();
+                }, 500);
+                setTimeout(function(){
+                    suiteJSON(suiteType);
+                }, 500);
+            }else{
+                suiteJSON(suiteType);
+            }
+        }, 500);
         return false;
     });
 
@@ -239,10 +265,8 @@ function init(){
             $.each(data, function( key, val){
                 if (key == bigwig){
                     bio.push("<span id='" + bigwig + "' class='about-inner-desc'><h6><strong>" + val.name + "</strong>, " + val.job + "</h6><p>" + val.bio + "</p></span>" );
-                    //console.log(val.name);
                 }
             });
-            console.log(anchor);
             $( "<span/>", {
                 "class": "about-desc",
                 html: bio
