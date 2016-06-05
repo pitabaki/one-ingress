@@ -195,7 +195,7 @@ function init(){
                 $.each(data, function(key, val){
                     if(key === "def"){
                         def = val;
-                        suiteInfo.push("<div class='default-text'><h2>Ops! We are still working!</h2><p>We plan on launching this suite soon.<br>Be on the look out!</p></div><img src='" + def.image + "' alt='Page under construction'>");
+                        suiteInfo.push("<div class='default-text'><h2>Oops! We are still working!</h2><p>We plan on launching this suite soon.<br>Be on the look out!</p></div><img src='" + def.image + "' alt='Page under construction'>");
                     }
                 });
                 $( "<div/>", {
@@ -299,7 +299,7 @@ function init(){
             $.each(data, function(key, val){
                 sliders.push(constantImgBegin + val.image + "' alt='" + val.name + "'></div></div>" + constantCopyBegin + "<h6>" + val.title + "</h6><p>" + val.summary + "</p></div></div></div>");
             });
-
+/*
             $.each(sliders, function(index){
                 var total = sliders.length;
                 var last = total - 1;
@@ -318,17 +318,154 @@ function init(){
                         "class": "control slider-left",
                         html: sliders[index]
                     }).appendTo( '.membership-slider-outer' );
+                }else{
+                    $( "<div/>", {
+                        "class": "control",
+                        html: sliders[index]
+                    }).appendTo( '.membership-slider-outer' );
+                }
+            });*/
+            $.each(sliders, function(index){
+                $( "<div/>", {
+                    "class": "control",
+                    html: sliders[index]
+                }).appendTo( '.membership-slider-outer');
+            });
+            var sliderArray = $(".membership-slider-outer").children(),
+                total = 0;
+            $.each(sliderArray, function(index){
+                total += 1;
+                $(this).data("sliders", index);
+            });
+            var last = total - 1;
+            $.each(sliderArray, function(){
+                if($(this).data("sliders") === 0){
+                    $(this).css({
+                        "display":"inline-block"
+                    });
+                } else if ($(this).data("sliders") === 1){
+                    $(this).css({
+                        "display":"inline-block",
+                        "left":"80%",
+                        "right":"0",
+                        "opacity":"0"
+                    }); 
+                } else if ($(this).data("sliders") === last){
+                    $(this).css({
+                        "display":"inline-block",
+                        "right":"80%",
+                        "left":"0",
+                        "opacity":"0"
+                    }); 
                 }
             });
-            /*$( "<div/>", {
-                "class": "control",
-                html: sliders
-            }).appendTo( '.membership-slider-outer' );*/
-        //console.log(sliders);
         });
-
+    });
+    $("#left-click").click(function(){
+        var sliderArray = $(".membership-slider-outer").children(),
+            total = 0;
+        $.each(sliderArray, function(index){
+            total += 1;
+        });
+        var last = total -1;
+        $.each(sliderArray, function(){
+            var slide = $(this).data("sliders");
+            if(slide === 0){
+                $(this).css({
+                    "right": "80%",
+                    "left":"0",
+                    "opacity": "0"
+                });
+                $(this).css("display", function(){
+                    setTimeout(function(){
+                        return "none";
+                    }, 50);
+                });
+            } else if (slide === 1) {
+                $(this).css({
+                    "display":"inline-block",
+                    "left":"0",
+                    "right": "0",
+                    "opacity": "1"
+                });
+            } else if (slide === last) {
+                $(this).css("display","none");
+            }
+        });
+        $.each(sliderArray, function(index){
+            var newSlider = $(this).data("sliders") - 1;
+            if($(this).data("sliders") === 0){
+                $(this).data("sliders", last);
+            } else {
+               $(this).data("sliders", newSlider); 
+            }
+            console.log($(this).data("sliders"));
+        });
+        $.each(sliderArray, function(){
+            if ($(this).data("sliders") === 1) {
+                $(this).css({
+                    "display":"inline-block",
+                    "left":"80%",
+                    "right":"0",
+                    "opacity":"0"
+                });
+            }
+        });
+        return false;
     });
 
+    $("#right-click").click(function(){
+        var sliderArray = $(".membership-slider-outer").children(),
+            total = 0;
+        $.each(sliderArray, function(index){
+            total += 1;
+        });
+        var last = total -1;
+        $.each(sliderArray, function(){
+            var slide = $(this).data("sliders");
+            if(slide === 0){
+                $(this).css({
+                    "left": "80%",
+                    "right":"0",
+                    "opacity": "0"
+                });
+                $(this).css("display", function(){
+                    setTimeout(function(){
+                        return "none";
+                    }, 50);
+                });
+            } else if (slide === last) {
+                $(this).css({
+                    "display":"inline-block",
+                    "left":"0",
+                    "right": "0",
+                    "opacity": "1"
+                });
+            } else if (slide === 1) {
+                $(this).css("display","none");
+            }
+        });
+        $.each(sliderArray, function(index){
+            var newSlider = $(this).data("sliders") + 1;
+            if($(this).data("sliders") === last){
+                $(this).data("sliders", 0);
+            } else {
+               $(this).data("sliders", newSlider); 
+            }
+            console.log($(this).data("sliders"));
+        });
+        $.each(sliderArray, function(){
+            if ($(this).data("sliders") === last) {
+                $(this).css({
+                    "display":"inline-block",
+                    "right":"80%",
+                    "left":"0",
+                    "opacity":"0"
+                });
+            }
+        });
+        return false;
+    });
 
     /*
     $('.suite').click(function(){

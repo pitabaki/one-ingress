@@ -727,6 +727,7 @@ footer p
 .default-img
 	margin-bottom: 0 !important
 	vertical-align: bottom
+	background-image: url(../img/artwork-main-default.jpg)
 
 .default-img img
 	width: 100%
@@ -783,18 +784,19 @@ footer p
 	width: 70%
 
 .control
-	display: inline-block
-	position: relative
-	width: 100%
+	display: none
+	position: absolute
+	left: 0
+	right: 0
 	+transition(all 0.75s ease)
 
 .control>.img
 	+reset
-	height: 300px
+	height: 320px
 
 .control>.copy
 	+reset
-	height: 120px
+	height: 100px
 
 .slider-left
 	right: 105%
