@@ -114,7 +114,7 @@ a
 	font-size: 18px
 	font-weight: 400
 	line-height: 32px
-	transition: color 0.75s ease
+	+transition(color 0.75s ease)
 
 a:hover
 	color: $h3-blue-shade !important
@@ -141,7 +141,7 @@ section
 #login-modal
 	bottom: -100%
 	z-index: 23
-	transition: all 0.75s ease
+	+transition(all 0.75s ease)
 
 #form-signin,
 #form-signup
@@ -155,7 +155,7 @@ section
 	background-color: #000000
 	opacity: 0
 	z-index: 1
-	transition: opacity 0.75s ease
+	+transition(opacity 0.75s ease)
 
 .row
 	margin-top: 80px
@@ -199,7 +199,7 @@ section
 	padding: 4px !important
 	+border-radius(10px)
 	border: 1px solid $h3-blue
-	transition: background-color 0.75s ease
+	+transition(background-color 0.75s ease)
 
 .icon-arrow:hover
 	background-color: $h3-blue-shade
@@ -258,7 +258,7 @@ input:focus
 input[type="submit"]
 	color: $true-white !important
 	background-color: $h3-blue !important
-	transition: background-color 0.75s ease
+	+transition(background-color 0.75s ease)
 
 input[type="submit"]:hover
 	background-color: $h3-blue-shade !important
@@ -354,7 +354,7 @@ footer h4
 	overflow: hidden
 	height: 0
 	min-height: 0 !important
-	transition: min-height 0.75s ease
+	+transition(min-height 0.75s ease)
 
 .collapsible-header
 	padding: 0
@@ -392,7 +392,7 @@ footer h4
 	margin-top: 8% !important
 	float: left
 	left: -45px
-	transition: left 0.5s ease
+	+transition(left 0.5s ease)
 
 .menu-button
 	+muscle-flex
@@ -425,7 +425,7 @@ footer h4
 footer li>a,
 footer p
 	color: $true-white
-	transition: color 0.75s ease
+	+transition(color 0.75s ease)
 
 footer li>a:hover
 	color: $h3-blue !important
@@ -559,7 +559,7 @@ footer p
 	display: inline-block
 	+reset
 	float: left
-	transition: padding-left 0.5s ease
+	+transition(padding-left 0.5s ease)
 
 .suite-card-paragraph>a>img:hover
 	padding-left: 10px !important
@@ -575,7 +575,7 @@ footer p
 
 .suite
 	background-color: #dedede
-	transition: background-color 0.5s ease
+	+transition(background-color 0.5s ease)
 
 .active[data-product="education"]
 	background-color: #add35c
@@ -637,7 +637,7 @@ footer p
 	background-color: $bg-white-two
 	border-top: 1px solid $border-grey
 	border-bottom: 1px solid $border-grey
-	transition: max-height 0.5s ease
+	+transition(max-height 0.5s ease)
 
 .product-summaries>.center
 	margin: 80px auto
@@ -722,7 +722,7 @@ footer p
 
 .about-desc
 	opacity: 0
-	transition: opacity 1s ease
+	+transition(opacity 1s ease)
 
 .default-img
 	margin-bottom: 0 !important
@@ -737,7 +737,7 @@ footer p
 	margin-top: 10%
 	left: 14%
 	opacity: 0
-	transition: opacity 0.5s ease
+	+transition(opacity 0.5s ease)
 
 //End About Page
 
@@ -745,28 +745,69 @@ footer p
 
 //Membership Page
 
-.membership-slider
+.membership-slider-outer
 	+reset
 	height: 420px
+	position: relative
+	overflow: hidden
+	text-align: center
+
+.membership-slider
+	+reset
+	height: 100%
 
 .membership-slider img
 	+reset
-	margin-bottom: 40px
+	display: inline-block
+	vertical-align: middle
 
-.membership-slider p
+.assistant
+	height: 100%
+	display: inline-block
+
+.img>.membership-slider>.assistant
+	vertical-align: middle
+
+.copy>.membership-slider>.assistant
+	vertical-align: top
+
+.membership-slider>.text
+	display: inline-block
+	vertical-align: top
+
+.membership-slider>.text p
 	+reset
 	margin-top: 4px
-	width: 20%
 	float: none
 	line-height: 25px
+	width: 70%
 
-.membership-slider>.row,
-.membership-slider>.row>.membership-slider
+.control
+	display: inline-block
+	position: relative
+	width: 100%
+	+transition(all 0.75s ease)
+
+.control>.img
 	+reset
-	display: inline
+	height: 300px
+
+.control>.copy
+	+reset
+	height: 120px
+
+.slider-left
+	right: 105%
+
+.slider-right
+	left: 105%
 
 //End Membership Page
 
+@media screen and (min-width: 1500px)
+	.left-artwork img,
+	.left-artwork img
+		margin-top: 0 !important
 
 @media screen and (max-width: 1200px)
 	.left-artwork img

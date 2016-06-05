@@ -282,5 +282,75 @@ function init(){
             selected.empty();
         }, 100);
     });
+
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Functions to operate the membership pages's slider
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
+    $('.membership-slider-outer').ready(function(){
+        var constantImgBegin = "<div class='row img'><div class='membership-slider img'><div class='assistant'></div><img src='",
+            constantCopyBegin = "<div class='row copy'><div class='membership-slider'><div class='assistant'></div><div class='text'>";
+        $.getJSON("ajax/membership.json", function ( data ) {
+            var sliders = [];
+            $.each(data, function(key, val){
+                sliders.push(constantImgBegin + val.image + "' alt='" + val.name + "'></div></div>" + constantCopyBegin + "<h6>" + val.title + "</h6><p>" + val.summary + "</p></div></div></div>");
+            });
+
+            $.each(sliders, function(index){
+                var total = sliders.length;
+                var last = total - 1;
+                if(index === 0){
+                    $( "<div/>", {
+                        "class": "control slider-active",
+                        html: sliders[index]
+                    }).appendTo( '.membership-slider-outer');
+                }else if(index === 1){
+                    $( "<div/>", {
+                        "class": "control slider-right",
+                        html: sliders[index]
+                    }).appendTo( '.membership-slider-outer' );
+                }else if(index === last){
+                    $( "<div/>", {
+                        "class": "control slider-left",
+                        html: sliders[index]
+                    }).appendTo( '.membership-slider-outer' );
+                }
+            });
+            /*$( "<div/>", {
+                "class": "control",
+                html: sliders
+            }).appendTo( '.membership-slider-outer' );*/
+        //console.log(sliders);
+        });
+
+    });
+
+
+    /*
+    $('.suite').click(function(){
+        var suiteType = $(this).data('product');
+        $('.suite').removeClass('active');
+        $(this).addClass('active');
+        setTimeout( function () {
+            //$(this).addClass('active');
+            if($('.product-summaries').children().length > 0){
+                $('.default-text').css({'opacity':'0'});
+                $('.product-summaries').css({'max-height':'0'});
+                setTimeout(function(){
+                    $('.product-summaries').empty();
+                }, 500);
+                setTimeout(function(){
+                    suiteJSON(suiteType);
+                }, 500);
+            }else{
+                suiteJSON(suiteType);
+            }
+        }, 500);
+        return false;
+    });*/
 }
 window.onload = init;
