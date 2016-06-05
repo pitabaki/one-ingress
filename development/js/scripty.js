@@ -95,9 +95,11 @@ function init(){
         alignment: 'left' // Displays dropdown with edge aligned to the left of button
     });
 
+    // Removed feature; poor UX
+    /*
     $('.dropdown-constant').hover(function(){
         $('.nest-dropdown').css('cssText', 'min-height: 0px !important;');
-    });
+    });*/
 
     //Don't add "out" handler. It's important the user hovers over '.dropdown-constant' to close out '.nest-trigger'
 
@@ -291,7 +293,7 @@ function init(){
     //////////////////////////////////////////////////
     *************************************************/
 
-    $('.membership-slider-outer').ready(function(){
+    $('.slider-outer').ready(function(){
         var constantImgBegin = "<div class='row img'><div class='membership-slider img'><div class='assistant'></div><img src='",
             constantCopyBegin = "<div class='row copy'><div class='membership-slider'><div class='assistant'></div><div class='text'>";
         $.getJSON("ajax/membership.json", function ( data ) {
@@ -307,31 +309,31 @@ function init(){
                     $( "<div/>", {
                         "class": "control slider-active",
                         html: sliders[index]
-                    }).appendTo( '.membership-slider-outer');
+                    }).appendTo( '.slider-outer');
                 }else if(index === 1){
                     $( "<div/>", {
                         "class": "control slider-right",
                         html: sliders[index]
-                    }).appendTo( '.membership-slider-outer' );
+                    }).appendTo( '.slider-outer' );
                 }else if(index === last){
                     $( "<div/>", {
                         "class": "control slider-left",
                         html: sliders[index]
-                    }).appendTo( '.membership-slider-outer' );
+                    }).appendTo( '.slider-outer' );
                 }else{
                     $( "<div/>", {
                         "class": "control",
                         html: sliders[index]
-                    }).appendTo( '.membership-slider-outer' );
+                    }).appendTo( '.slider-outer' );
                 }
             });*/
             $.each(sliders, function(index){
                 $( "<div/>", {
                     "class": "control",
                     html: sliders[index]
-                }).appendTo( '.membership-slider-outer');
+                }).appendTo( '.slider-outer');
             });
-            var sliderArray = $(".membership-slider-outer").children(),
+            var sliderArray = $(".slider-outer").children(),
                 total = 0;
             $.each(sliderArray, function(index){
                 total += 1;
@@ -361,8 +363,9 @@ function init(){
             });
         });
     });
+
     $("#left-click").click(function(){
-        var sliderArray = $(".membership-slider-outer").children(),
+        var sliderArray = $(".slider-outer").children(),
             total = 0;
         $.each(sliderArray, function(index){
             total += 1;
@@ -415,7 +418,7 @@ function init(){
     });
 
     $("#right-click").click(function(){
-        var sliderArray = $(".membership-slider-outer").children(),
+        var sliderArray = $(".slider-outer").children(),
             total = 0;
         $.each(sliderArray, function(index){
             total += 1;
