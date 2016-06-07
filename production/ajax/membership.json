@@ -1,0 +1,30 @@
+{
+	"email" : {
+		"name": "email",
+		"image": "../img/artwork-slider-email.jpg",
+		"title": "Receive a 1Ingress Email Account",
+		"summary": "Comes with 24/7 Tech Support Reliable and Secure Network",
+		"external": ""
+	},
+	"file" : {
+		"name": "file",
+		"image": "../img/artwork-slider-file.jpg",
+		"title": "Electornic File Cabinet",
+		"summary": "Access to fillable documents (images, video, and large sized files) eSignature Capability",
+		"external": ""
+	},
+	"conference" : {
+		"name": "conference",
+		"image": "../img/artwork-slider-conference.jpg",
+		"title": "Online Interactive Conferences and Chats",
+		"summary": "Create online chats utilize multiple web-conferencing (viewer and video) ",
+		"external": ""
+	},
+	"network" : {
+		"name": "network",
+		"image": "../img/artwork-slider-network.jpg",
+		"title": "Network Lounge",
+		"summary": "Create networking groups, similiar to groups that can be created on LinkedIn Network across the globe",
+		"external": ""
+	}
+}
