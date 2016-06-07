@@ -288,50 +288,39 @@ function init(){
     /*************************************************
     //////////////////////////////////////////////////
 
-    Functions to operate the membership pages's slider
+    Functions to operate the Index pages's slider
 
     //////////////////////////////////////////////////
     *************************************************/
 
-    $('.slider-outer').ready(function(){
-        var constantImgBegin = "<div class='row img'><div class='membership-slider img'><div class='assistant'></div><img src='",
-            constantCopyBegin = "<div class='row copy'><div class='membership-slider'><div class='assistant'></div><div class='text'>";
-        $.getJSON("ajax/membership.json", function ( data ) {
+    $('#xcard-slider').ready(function(){
+        console.log("load working");
+        var divOpen = "<div class='row copy'><div class='index-slider'><div class='assistant'></div><div class='text'>",
+            rowOpen = "<div class='row'><div class='col s12 m6 l6 left slider-text'>",
+            linkOpen = "<div class='outer-left'><div class='mid-left'>",
+            rowOpenTwo = "<div class='row copy index-slide-inner'>",
+            divOpenTwo = "<div class='col s12 m12 l6'><div class='index-slider'><div class='assistant'></div>",
+            identifier = "#xcard-slider";
+
+        $.getJSON("ajax/xcard.json", function ( data ) {
             var sliders = [];
             $.each(data, function(key, val){
-                sliders.push(constantImgBegin + val.image + "' alt='" + val.name + "'></div></div>" + constantCopyBegin + "<h6>" + val.title + "</h6><p>" + val.summary + "</p></div></div></div>");
-            });
-/*
-            $.each(sliders, function(index){
-                var total = sliders.length;
-                var last = total - 1;
-                if(index === 0){
-                    $( "<div/>", {
-                        "class": "control slider-active",
-                        html: sliders[index]
-                    }).appendTo( '.slider-outer');
-                }else if(index === 1){
-                    $( "<div/>", {
-                        "class": "control slider-right",
-                        html: sliders[index]
-                    }).appendTo( '.slider-outer' );
-                }else if(index === last){
-                    $( "<div/>", {
-                        "class": "control slider-left",
-                        html: sliders[index]
-                    }).appendTo( '.slider-outer' );
+                console.log("working each");
+                if (val.summaryTwo.length > 0) {
+                    console.log("working if");
+                    sliders.push(divOpen + "<img src='" + val.image + "' alt='" + val.name + "'><h3>" + val.title + "</h3>"+ rowOpen + "<h6>" + val.summaryTitle + "</h6><p>" + val.summary + "</p>" + linkOpen + "<a href='" + val.external + "'>Learn More</a></div><div class='mid-right icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' /></a></div></div></div><div class='col s12 m6 l6 left slider-text'><h6>" + val.summaryTwoTitle + "</h6><p>" + val.summaryTwo + "</p></div>");
                 }else{
-                    $( "<div/>", {
-                        "class": "control",
-                        html: sliders[index]
-                    }).appendTo( '.slider-outer' );
+                    sliders.push(rowOpenTwo + divOpenTwo + "<img src='" + val.image + "' alt='" + val.name + "'></div></div>" + divOpenTwo + "<div id='full-width' class='text left'><h3>" + val.title + "</h3><h4>" + val.summaryTitle + "</h4><p>" + val.summary + "</p></div></div></div></div>");
                 }
-            });*/
+            });
+            if(sliders.length <= 2){
+                sliders.push(sliders[0],sliders[1]);
+            }
             $.each(sliders, function(index){
                 $( "<div/>", {
                     "class": "control",
                     html: sliders[index]
-                }).appendTo( '.slider-outer');
+                }).appendTo( identifier );
             });
             var sliderArray = $(".slider-outer").children(),
                 total = 0;
@@ -343,20 +332,74 @@ function init(){
             $.each(sliderArray, function(){
                 if($(this).data("sliders") === 0){
                     $(this).css({
-                        "display":"inline-block"
+                        "display":"block"
                     });
                 } else if ($(this).data("sliders") === 1){
                     $(this).css({
-                        "display":"inline-block",
-                        "left":"80%",
+                        "display":"block",
+                        "left":"1200px",
                         "right":"0",
                         "opacity":"0"
                     }); 
                 } else if ($(this).data("sliders") === last){
                     $(this).css({
-                        "display":"inline-block",
-                        "right":"80%",
-                        "left":"0",
+                        "display":"block",
+                        "left":"-1200px",
+                        "opacity":"0"
+                    }); 
+                }
+            });
+        });
+    });
+
+    /*************************************************
+    //////////////////////////////////////////////////
+
+    Functions to operate the membership pages's slider
+
+    //////////////////////////////////////////////////
+    *************************************************/
+
+    $('#membership-slider').ready(function(){
+        var constantImgBegin = "<div class='row img'><div class='membership-slider img'><div class='assistant'></div><img src='",
+            constantCopyBegin = "<div class='row copy'><div class='membership-slider'><div class='assistant'></div><div class='text'>",
+            identifier = "#membership-slider";
+
+        $.getJSON("ajax/membership.json", function ( data ) {
+            var sliders = [];
+            $.each(data, function(key, val){
+                sliders.push(constantImgBegin + val.image + "' alt='" + val.name + "'></div></div>" + constantCopyBegin + "<h6>" + val.title + "</h6><p>" + val.summary + "</p></div></div></div>");
+            });
+            $.each(sliders, function(index){
+                $( "<div/>", {
+                    "class": "control",
+                    html: sliders[index]
+                }).appendTo( identifier );
+            });
+            var sliderArray = $(".slider-outer").children(),
+                total = 0;
+            $.each(sliderArray, function(index){
+                total += 1;
+                $(this).data("sliders", index);
+            });
+            var last = total - 1;
+            $.each(sliderArray, function(){
+                if($(this).data("sliders") === 0){
+                    $(this).css({
+                        "display":"block"
+                    });
+                } else if ($(this).data("sliders") === 1){
+                    $(this).css({
+                        "display":"block",
+                        "left":"1200px",
+                        "right":"0",
+                        "opacity":"0"
+                    }); 
+                } else if ($(this).data("sliders") === last){
+                    $(this).css({
+                        "display":"block",
+                        "right":"0",
+                        "left":"-1200px",
                         "opacity":"0"
                     }); 
                 }
@@ -370,13 +413,13 @@ function init(){
         $.each(sliderArray, function(index){
             total += 1;
         });
-        var last = total -1;
+        var last = total - 1;
         $.each(sliderArray, function(){
             var slide = $(this).data("sliders");
             if(slide === 0){
                 $(this).css({
-                    "right": "80%",
-                    "left":"0",
+                    "right": "0",
+                    "left":"-1200px",
                     "opacity": "0"
                 });
                 $(this).css("display", function(){
@@ -386,7 +429,7 @@ function init(){
                 });
             } else if (slide === 1) {
                 $(this).css({
-                    "display":"inline-block",
+                    "display":"block",
                     "left":"0",
                     "right": "0",
                     "opacity": "1"
@@ -407,8 +450,8 @@ function init(){
         $.each(sliderArray, function(){
             if ($(this).data("sliders") === 1) {
                 $(this).css({
-                    "display":"inline-block",
-                    "left":"80%",
+                    "display":"block",
+                    "left":"1200px",
                     "right":"0",
                     "opacity":"0"
                 });
@@ -428,7 +471,7 @@ function init(){
             var slide = $(this).data("sliders");
             if(slide === 0){
                 $(this).css({
-                    "left": "80%",
+                    "left": "1200px",
                     "right":"0",
                     "opacity": "0"
                 });
@@ -439,7 +482,7 @@ function init(){
                 });
             } else if (slide === last) {
                 $(this).css({
-                    "display":"inline-block",
+                    "display":"block",
                     "left":"0",
                     "right": "0",
                     "opacity": "1"
@@ -460,37 +503,14 @@ function init(){
         $.each(sliderArray, function(){
             if ($(this).data("sliders") === last) {
                 $(this).css({
-                    "display":"inline-block",
-                    "right":"80%",
-                    "left":"0",
+                    "display":"block",
+                    "right":"0",
+                    "left":"-1200px",
                     "opacity":"0"
                 });
             }
         });
         return false;
     });
-
-    /*
-    $('.suite').click(function(){
-        var suiteType = $(this).data('product');
-        $('.suite').removeClass('active');
-        $(this).addClass('active');
-        setTimeout( function () {
-            //$(this).addClass('active');
-            if($('.product-summaries').children().length > 0){
-                $('.default-text').css({'opacity':'0'});
-                $('.product-summaries').css({'max-height':'0'});
-                setTimeout(function(){
-                    $('.product-summaries').empty();
-                }, 500);
-                setTimeout(function(){
-                    suiteJSON(suiteType);
-                }, 500);
-            }else{
-                suiteJSON(suiteType);
-            }
-        }, 500);
-        return false;
-    });*/
 }
 window.onload = init;

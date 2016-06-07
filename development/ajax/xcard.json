@@ -1,0 +1,24 @@
+{
+	"xcard" : {
+		"name": "xcard",
+		"image": "../img/artwork-slider-xcard.jpg",
+		"title": "The multi-tasking card that does it all. Pay your bills. Go to the grocery store. Your key card entry into your home. This card takes you furthur.",
+		"summaryTitle": "A universally accepted debit card.",
+		"summary": "The multi-purpose X card provides financial services and procedures, and acts as high-end security access to events, your work or home. Buying groceries? Attending a concert? Need to provide limited access to your house sitter? This one card opens the door and takes care of it all. ",
+		"summaryTwoTitle": "One swipe.<br>Fast checkout and admittance.",
+		"summaryTwo": "When an Interactive Admittance Card has been swiped, the information is transferred to our system, as well as to the 1ingress cardholder’s e-mail and/or bank account.",
+		"external":"#!",
+		"position":"center"
+	},
+	"green" : {
+		"name": "green",
+		"image": "../img/artwork-slider-green.jpg",
+		"title": "<span class='green'>Green Technology</span>",
+		"summaryTitle": "Giving the world love it needs to sustain itself.",
+		"summary": "The application of green technology is embedded in the infrastructure’s ability to conserve the natural environment by reducing the use of resources that lead to paper consumption and poor air quality (emissions for extensive travel), while promoting energy conservation and sustainable development of the environment.",
+		"summaryTwoTitle": "",
+		"summaryTwo": "",
+		"external":"#!",
+		"position":"left"
+	}
+}

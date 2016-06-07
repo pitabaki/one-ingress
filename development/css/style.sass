@@ -197,6 +197,7 @@ section
 
 .icon-arrow
 	padding: 4px !important
+	display: block !important
 	+border-radius(10px)
 	border: 1px solid $h3-blue
 	+transition(background-color 0.75s ease)
@@ -266,7 +267,8 @@ input[type="submit"]:hover
 +placeholder(#999999)
 
 .center,
-.membership-slider
+.membership-slider,
+.index-slider
 	text-align: center
 	float: none !important
 	margin: 0 auto
@@ -523,6 +525,54 @@ footer p
 	vertical-align: middle
 	margin: 4% !important
 
+#slider
+	background-color: $bg-white-two
+	border-top: 1px solid $border-grey
+	border-bottom: 1px solid $border-grey
+
+.green
+	color: $green-tech
+	background-color: inherit !important
+
+.text h3
+	width: 60%
+
+.index-slider h3
+	margin: 40px auto 20px !important 
+
+#full-width
+	margin-top: 50%
+
+#full-width h3,
+#full-width h4,
+#full-width p
+	width: 100% !important
+	+reset
+
+.slider-text p
+	float: left !important
+	width: 95% !important
+
+#xcard-slider
+	height: 600px !important
+
+#xcard-slider>.row,
+.text>.row
+	+reset
+
+.xcard-slider .center
+	margin: 0 auto !important
+
+.index-slide-inner,
+.index-slide-inner .col
+	height: 100% !important
+
+.index-slider .assistant
+	vertical-align: middle
+
+#xcard-slider>.control
+	height: 100%
+
 //End Index Page
 
 
@@ -672,7 +722,7 @@ footer p
 
 .bigwigs
 	display: inline-block
-	background: url('..//img//artwork-about-bigwigs.png') no-repeat 0 0
+	background: url('..//img//artwork-about-bigwigs.jpg') no-repeat 0 0
 	width: 175px
 	height: 203px
 
@@ -753,12 +803,14 @@ footer p
 	overflow: hidden
 	text-align: center
 
-.membership-slider
+.membership-slider,
+.index-slider
 	+reset
 	height: 100%
 
-.membership-slider img
-	+reset
+.membership-slider img,
+.index-slider img
+	margin: 0 auto !important
 	display: inline-block
 	vertical-align: middle
 
@@ -766,17 +818,21 @@ footer p
 	height: 100%
 	display: inline-block
 
-.img>.membership-slider>.assistant
+.img>.membership-slider>.assistant,
+.img>.index-slider>.assistant
 	vertical-align: middle
 
-.copy>.membership-slider>.assistant
+.copy>.membership-slider>.assistant,
+.copy>.index-slider>.assistant
 	vertical-align: top
 
-.membership-slider>.text
+.membership-slider>.text,
+.index-slider>.text
 	display: inline-block
 	vertical-align: top
 
-.membership-slider>.text p
+.membership-slider>.text p,
+.index-slider>.text p
 	+reset
 	margin-top: 4px
 	float: none
@@ -788,6 +844,7 @@ footer p
 	position: absolute
 	left: 0
 	right: 0
+	width: 100%
 	+transition(all 0.75s ease)
 
 .control>.img
@@ -799,10 +856,10 @@ footer p
 	height: 100px
 
 .slider-left
-	right: 105%
+	left: -1200px
 
 .slider-right
-	left: 105%
+	left: 1200px
 
 //End Membership Page
 
