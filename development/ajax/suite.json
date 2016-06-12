@@ -11,6 +11,9 @@
 		"image": "../img/artwork-main-education.jpg",
 		"title": "Interactive Space for Learning &amp; Success",
 		"summary": "The Interactive Education Suite (IES) provides members with resources and tools needed for educational success and career development. Members will be furnished training, tools, and career counseling that will strengthen and enhance education, earning potential, and job skills required in today’s workforce.",
-		"external": "products.html"
+		"external": "products.html",
+		"popupOne": "Lorem dim sum Potstickers stir fried radish cake Steamed Bun with Butter Cream hot raw fish slices porridge traditional steamed glutinous rice with zhu hao sauce.",
+		"popupTwo": "A creamy mango pudding Chiu-chao fan guo Siu mai Haam sui gau Jiu cai bau Zhaliang Pei guen Lo baak gou Taro cake Deep fried pumpkin and egg-yolk ball.",
+		"popupThree": "Deep fried bean curd skin rolls rice noodle roll deep fried crab claw soup dumpling cold chicken claw xo spicy rice noodle roll honey glazed BBQ pork soy sauce chicken roast duck golden pumpkin fries."
 	}
 }

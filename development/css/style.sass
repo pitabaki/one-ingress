@@ -699,6 +699,68 @@ footer p
 .product-summaries>.center
 	margin: 80px auto
 
+.illum-button
+	display: block
+	position: absolute
+	opacity: 0
+	width: 600px
+	transition: all 0.5s ease
+
+.illum-button img
+	@extend .icon-arrow
+	display: inline-block !important
+	padding: 8px !important
+	+border-radius(16px)
+	border: 1px solid $ever-so-slightly-darker-border-grey
+	background-color: $bg-white
+	float: left
+	transition: transform 0.5s ease
+
+.right img
+	float: right !important
+
+.illum-button img:hover
+	background-color: $bg-white
+	
+[data-illum="popupOne"]
+	margin-top: -520px
+	margin-left: 380px
+
+[data-illum="popupTwo"]
+	margin-top: -280px
+	margin-left: 100px
+
+[data-illum="popupThree"]
+	margin-top: -400px
+	right: 400px
+
+.illum-desc
+	@extend .about-desc
+	width: 60%
+	margin-top: 20px
+	margin-left: 20px
+	float: left
+	display: inline-block
+	opacity: 0
+	text-align: left
+	background-color: $bg-white
+	border: 1px solid $ever-so-slightly-darker-border-grey
+	transition: opacity 0.5s ease
+
+.right>.illum-desc
+	float: right
+	margin-left: 0
+	margin-right: 20px
+
+.takeFlight
+	z-index: 7146515527
+
+.clockwise
+	+rotation(180deg)
+
+.counter
+	+rotation(-180deg)
+
 //End Product Page
 
 //About Page

@@ -95,31 +95,11 @@ function init(){
         alignment: 'left' // Displays dropdown with edge aligned to the left of button
     });
 
-    // Removed feature; poor UX
-    /*
-    $('.dropdown-constant').hover(function(){
-        $('.nest-dropdown').css('cssText', 'min-height: 0px !important;');
-    });*/
-
     //Don't add "out" handler. It's important the user hovers over '.dropdown-constant' to close out '.nest-trigger'
 
     $('.nest-trigger').hover(function(){
         $('.nest-dropdown').css('cssText', 'min-height: 150px !important;');
     });
-
-    //UX Implementation: For Mobile Users, click functionality is necessary
-    //Removed because it interfered with accessing the product page
-    /*
-    $('.nest-trigger').click(function(){
-        var nestDropdown = $('.nest-dropdown');
-        var height = nestDropdown.css('min-height');
-        if(height !== "0px"){
-            $('.nest-dropdown').css('cssText', 'min-height: 0px !important;');
-        }else{
-            $('.nest-dropdown').css('cssText', 'min-height: 150px !important;');
-        }
-        return false;
-    });*/
     
     /*************************************************
     //////////////////////////////////////////////////
@@ -183,14 +163,70 @@ function init(){
 
     //////////////////////////////////////////////////
     *************************************************/
+
+    function clickInit(){
+        function imgRotate(imgSelect){
+            imgSelect.children('img').addClass('clockwise');
+            setTimeout(function(){
+                imgSelect.children('img').attr('src','img/icon-minus.png');
+            }, 50);
+        }
+        function removeIllum(){
+            $('.illum-desc').css({'opacity':'0'});
+            $('.illum-desc').remove();
+            return false;
+        }
+        $('.illum-button').click(function(){
+            imgRotate($(this));
+            if($(this).hasClass("takeFlight")){
+                removeIllum();
+                $('.illum-button').removeClass('takeFlight');
+                return false;
+            }else{
+                removeIllum();
+                $('.illum-button').removeClass('takeFlight');
+                var attribute = $(this).data('illum'),
+                    open = "<span class='illum-desc'><span class='about-inner-desc'><p>",
+                    close = "</p></span></span>";
+
+                $(this).addClass('takeFlight');
+
+                if(attribute === "popupOne"){
+                    $(this).append(open + popupData[0] + close);
+                }else if (attribute === "popupTwo"){
+                    $(this).append(open + popupData[1] + close);
+                }else if (attribute === "popupThree"){
+                    $(this).append(open + popupData[2] + close);
+                }
+                setTimeout(function(){
+                    $('.illum-desc').css({'opacity':'1'});
+                }, 100);
+                return false;
+            }
+        });
+        $('.illum-desc').click(function(){
+            removeIllum();
+        });
+        $('.product-summaries').click(function(){
+            removeIllum();
+        })
+    }
+
+    var popupData = [];
+
     function suiteJSON(suiteType){
         $.getJSON("ajax/suite.json", function ( data ) {
             var suiteInfo = [],
                 def;
 
             $.each(data, function(key, val){
+                popupData = [];
                 if ((key === suiteType) && (suiteType !== "def")){
                     suiteInfo.push("<img src='" + val.image + "' alt='" + val.name + "'><h2>" + val.title + "</h2><p>" + val.summary + "</p><div class='outer-center'><div class='mid-left'><a href='" + val.external + "'>Learn More </a></div><div class='mid-left icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' alt='' /></a></div></div>");
+                    suiteInfo.push("<a href='#!' class='illum-button' data-illum='popupOne'><img src='img/icon-plus.png' alt=''></a>");
+                    suiteInfo.push("<a href='#!' class='illum-button' data-illum='popupTwo'><img src='img/icon-plus.png' alt=''></a>");
+                    suiteInfo.push("<a href='#!' class='illum-button right' data-illum='popupThree'><img src='img/icon-plus.png' alt=''></a>");
+                    popupData.push(val.popupOne, val.popupTwo, val.popupThree);
                 }
             });
             if(suiteInfo.length < 1){
@@ -217,6 +253,7 @@ function init(){
             setTimeout(function(){
                 $('.product-summaries').css({'max-height':'800px'});
             }, 50);
+            clickInit();
         });
     }
 
@@ -234,22 +271,30 @@ function init(){
             }
         }
         setTimeout( function () {
-            //$(this).addClass('active');
+            //remove any children from Product Summaries (container)
             if($('.product-summaries').children().length > 0){
                 $('.default-text').css({'opacity':'0'});
+                $('.illum-button').css({'opacity':'0'});
                 $('.product-summaries').css({'max-height':'0'});
                 setTimeout(function(){
                     $('.product-summaries').empty();
                 }, 500);
                 setTimeout(function(){
                     suiteJSON(suiteType);
+                    setTimeout(function(){
+                        $('.illum-button').css({'opacity':'1'});
+                    }, 100);
                 }, 500);
             }else{
                 suiteJSON(suiteType);
+                setTimeout(function(){
+                    $('.illum-button').css({'opacity':'1'});
+                }, 100);
             }
         }, 500);
         return false;
     });
+
 
     /*************************************************
     //////////////////////////////////////////////////
