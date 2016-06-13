@@ -172,6 +172,26 @@ function init(){
                 imgSelect.children('img').attr('src',image);
             }, 100);
         }
+
+        function removeDescClass(classy){
+            var illumButton = $(classy).children('img'),
+                activeState = 'clockwise',
+                inactiveState = 'counter';
+            illumButton.each(function(index){
+                if($(this).hasClass(activeState) === true){
+                    $(this).removeClass();
+                    $(classy).removeClass('takeFlight');
+                    $(this).attr('src','img/icon-plus.png');
+                }else if($(this).hasClass(inactiveState) === true){
+                    $(this).removeClass();
+                    $(classy).removeClass('takeFlight');
+                    $(this).attr('src','img/icon-plus.png');
+                }
+            });
+            removeIllum();
+            return false;
+        }
+
         function removeIllum(){
             $('.illum-desc').css({'opacity':'0'});
             $('.illum-desc').remove();
@@ -213,28 +233,10 @@ function init(){
             }
         });
         $('.illum-desc').click(function(){
-            var illumButton = $('.illum-button').children('img'),
-                clockwise = 'clockwise';
-            illumButton.each(function(index){
-                if($(this).hasClass(clockwise) === true){
-                    $(this).removeClass(clockwise);
-                    $(this).attr('src','img/icon-plus.png');
-                }
-            });
-            removeIllum();
-            return false;
+            removeDescClass('.illum-button');
         });
         $('.product-summaries').click(function(){
-            var illumButton = $('.illum-button').children('img'),
-                clockwise = 'clockwise';
-            illumButton.each(function(index){
-                if($(this).hasClass(clockwise) === true){
-                    $(this).removeClass(clockwise);
-                    $(this).attr('src','img/icon-plus.png');
-                }
-            });
-            removeIllum();
-            return false;
+            removeDescClass('.illum-button');
         })
     }
 
