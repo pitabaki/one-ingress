@@ -165,11 +165,12 @@ function init(){
     *************************************************/
 
     function clickInit(){
-        function imgRotate(imgSelect){
-            imgSelect.children('img').addClass('clockwise');
+        function imgRotate(imgSelect,classy,img){
+            var image = 'img/icon-' + img + '.png';
+            imgSelect.children('img').addClass(classy);
             setTimeout(function(){
-                imgSelect.children('img').attr('src','img/icon-minus.png');
-            }, 50);
+                imgSelect.children('img').attr('src',image);
+            }, 100);
         }
         function removeIllum(){
             $('.illum-desc').css({'opacity':'0'});
@@ -177,12 +178,19 @@ function init(){
             return false;
         }
         $('.illum-button').click(function(){
-            imgRotate($(this));
             if($(this).hasClass("takeFlight")){
+
+                // Handler for closing out description prompt 
+
+                imgRotate($(this),"counter","plus");
                 removeIllum();
                 $('.illum-button').removeClass('takeFlight');
                 return false;
             }else{
+
+                // Handler for opening description prompt 
+
+                imgRotate($(this),"clockwise","minus");
                 removeIllum();
                 $('.illum-button').removeClass('takeFlight');
                 var attribute = $(this).data('illum'),
@@ -199,16 +207,34 @@ function init(){
                     $(this).append(open + popupData[2] + close);
                 }
                 setTimeout(function(){
-                    $('.illum-desc').css({'opacity':'1'});
+                    $('.illum-desc').css({'opacity':'0.9'});
                 }, 100);
                 return false;
             }
         });
         $('.illum-desc').click(function(){
+            var illumButton = $('.illum-button').children('img'),
+                clockwise = 'clockwise';
+            illumButton.each(function(index){
+                if($(this).hasClass(clockwise) === true){
+                    $(this).removeClass(clockwise);
+                    $(this).attr('src','img/icon-plus.png');
+                }
+            });
             removeIllum();
+            return false;
         });
         $('.product-summaries').click(function(){
+            var illumButton = $('.illum-button').children('img'),
+                clockwise = 'clockwise';
+            illumButton.each(function(index){
+                if($(this).hasClass(clockwise) === true){
+                    $(this).removeClass(clockwise);
+                    $(this).attr('src','img/icon-plus.png');
+                }
+            });
             removeIllum();
+            return false;
         })
     }
 
@@ -247,7 +273,7 @@ function init(){
                 return false;
             }
             $( "<div/>", {
-                "class": "col s12 m12 l8 center",
+                "class": "col s12 m10 l8 center",
                 html: suiteInfo
             }).appendTo( '.product-summaries' );
             setTimeout(function(){
