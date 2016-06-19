@@ -19,19 +19,22 @@ function init(){
                 'opacity':'0.7'
             });
         }, 50);
-        setTimeout(function(){
-            $('#login-modal').css({
-                'display':'block',
-            });
-            $(form).css({
-                'display': 'block'
-            });
+
+        if(form.length > 0){
             setTimeout(function(){
                 $('#login-modal').css({
-                    'bottom':'0%'
+                    'display':'block',
                 });
-            }, 50);
-        }, 50);   
+                $(form).css({
+                    'display': 'block'
+                });
+                setTimeout(function(){
+                    $('#login-modal').css({
+                        'bottom':'0%'
+                    });
+                }, 50);
+            }, 50);   
+        }
     }
     //Background Fade Out Function
     function bgFadeOut(){
@@ -76,6 +79,23 @@ function init(){
         });
     });
 
+    $('#menu-icon').click(function(){
+        bgFadeIn();
+        $('.dropdown-button').dropdown({
+                inDuration: 500,
+                outDuration: 225,
+                constrain_width: false, // Does not change width of dropdown to that of the activator
+                hover: false, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: false, // Displays dropdown below the button
+                alignment: 'left' // Displays dropdown with edge aligned to the left of button
+        });
+        setTimeout(function(){
+            $('.close-button').css({"opacity":"1"});
+        }, 200);
+    });
+
+
     /*************************************************
     //////////////////////////////////////////////////
 
@@ -85,15 +105,6 @@ function init(){
     //////////////////////////////////////////////////
     *************************************************/
 
-    $('.dropdown-button').dropdown({
-        inDuration: 500,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: false, // Displays dropdown below the button
-        alignment: 'left' // Displays dropdown with edge aligned to the left of button
-    });
 
     //Don't add "out" handler. It's important the user hovers over '.dropdown-constant' to close out '.nest-trigger'
 
@@ -378,10 +389,9 @@ function init(){
         $.getJSON("ajax/xcard.json", function ( data ) {
             var sliders = [];
             $.each(data, function(key, val){
-                console.log("working each");
                 if (val.summaryTwo.length > 0) {
                     console.log("working if");
-                    sliders.push(divOpen + "<img src='" + val.image + "' alt='" + val.name + "'><h3>" + val.title + "</h3>"+ rowOpen + "<h6>" + val.summaryTitle + "</h6><p>" + val.summary + "</p>" + linkOpen + "<a href='" + val.external + "'>Learn More</a></div><div class='mid-right icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' /></a></div></div></div><div class='col s12 m6 l6 left slider-text'><h6>" + val.summaryTwoTitle + "</h6><p>" + val.summaryTwo + "</p></div>");
+                    sliders.push(divOpen + "<img src='" + val.image + "' alt='" + val.name + "'><h3>" + val.title + "</h3>"+ rowOpen + "<h6>" + val.summaryTitle + "</h6><p>" + val.summary + "</p>" + linkOpen + "<a href='" + val.external + "'>Learn More</a></div><div class='mid-right icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' /></a></div></div></div><div class='col s12 m6 l6 left slider-text'><h6>" + val.summaryTwoTitle + "</h6><p>" + val.summaryTwo + "</p>" + linkOpen + "<a href='" + val.external2 + "'>Watch video</a></div><div class='mid-right icon'><a href='" + val.external2 + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' /></a></div></div>");
                 }else{
                     sliders.push(rowOpenTwo + divOpenTwo + "<img src='" + val.image + "' alt='" + val.name + "'></div></div>" + divOpenTwo + "<div id='full-width' class='text left'><h3>" + val.title + "</h3><h4>" + val.summaryTitle + "</h4><p>" + val.summary + "</p></div></div></div></div>");
                 }
