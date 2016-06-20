@@ -94,6 +94,9 @@ function init(){
             $('.close-button').css({"opacity":"1"});
         }, 200);
     });
+    $('.dropdown-form-container').click(function(event){
+        event.stopPropagation();
+    });
 
 
     /*************************************************
@@ -120,8 +123,8 @@ function init(){
     //////////////////////////////////////////////////
     *************************************************/
 
-    $('#login').click(function(){
-        bgFadeIn('#form-signin');
+    $('#register').click(function(){
+        bgFadeIn('#form-signin-hidden');
         return true;
     });
     $('.signup-arrow').click(function(){

@@ -43,8 +43,9 @@ remains the same through all HTML files
 				<!-- Dropdown Structure -->
 				<ul id='menu-dropdown' class='dropdown-content'>
 					<li><a class="dropdown-constant" href="index.html">Home</a></li>
-					<li><a id="login" class="dropdown-constant" href="#login-modal">Login</a></li>
-					<li><a class="dropdown-constant" href="#about">Who we are</a></li>
+					<li><a class="dropdown-constant" href="about-us.html">Who we are</a></li>
+					<li><a class="dropdown-constant" href="products.html">Our Products</a></li>
+					<!--
 					<li><a class="nest-trigger" href="products.html">Our Products</a></li>
 					<li class="nest-dropdown">
 						<ul>
@@ -55,9 +56,32 @@ remains the same through all HTML files
 							<li><a href="#!">Multi-purpose Admittance Card</a></li>
 						</ul>
 					</li>
+					-->
 					<li><a class="dropdown-constant" href="membership.html">Membership Perks</a></li>
 					<li><a class="dropdown-constant" href="#site-map">Contact Us</a></li>
+					<li class="dropdown-form-container">
+						<h6>Sign In to Your Account</h6>
+						<form id="form-signin" class="dropdown-form" action="#">
+							<fieldset>
+								<input class="full-width" id="username-form-signin" type="text" name="username" placeholder="Username or Email" required/>
+								<input class="full-width" id="password-form-signin" type="text" name="password" placeholder="Password" required/>
+								<span class="half-width right remember">
+									<input type="checkbox" name="remember" placeholder="Remember" value="remember" checked>
+									<span>Remember Me</span>
+								</span>
+								<input class="half-width" id="submit-form-signin" type="submit" name="name" value="Login Now"/>
+							</fieldset>
+						</form>
+					</li>
+					<li class="dropdown-subtext"><a href="#!">Lost your password?</a></li>
+					<li class="dropdown-subtext"><a id="register" href="#!">Register Now</a></li>
 				</ul>
+
+				<a href="#!" class="close-button">
+					<img src="img/icon-close-btn.png" alt="" />
+				</a>
+
+
 			</div>
 			<div class="col s8 logo">
 				<a href="#"><img src="img/logo_1ingress.jpg" alt="1ingress" /></a>
