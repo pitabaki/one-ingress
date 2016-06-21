@@ -19,19 +19,22 @@ function init(){
                 'opacity':'0.7'
             });
         }, 50);
-        setTimeout(function(){
-            $('#login-modal').css({
-                'display':'block',
-            });
-            $(form).css({
-                'display': 'block'
-            });
+
+        if(form.length > 0){
             setTimeout(function(){
                 $('#login-modal').css({
-                    'bottom':'0%'
+                    'display':'block',
                 });
-            }, 50);
-        }, 50);   
+                $(form).css({
+                    'display': 'block'
+                });
+                setTimeout(function(){
+                    $('#login-modal').css({
+                        'bottom':'0%'
+                    });
+                }, 50);
+            }, 50);   
+        }
     }
     //Background Fade Out Function
     function bgFadeOut(){
@@ -76,6 +79,26 @@ function init(){
         });
     });
 
+    $('#menu-icon').click(function(){
+        bgFadeIn();
+        $('.dropdown-button').dropdown({
+                inDuration: 500,
+                outDuration: 225,
+                constrain_width: false, // Does not change width of dropdown to that of the activator
+                hover: false, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: false, // Displays dropdown below the button
+                alignment: 'left' // Displays dropdown with edge aligned to the left of button
+        });
+        setTimeout(function(){
+            $('.close-button').css({"opacity":"1"});
+        }, 200);
+    });
+    $('.dropdown-form-container').click(function(event){
+        event.stopPropagation();
+    });
+
+
     /*************************************************
     //////////////////////////////////////////////////
 
@@ -85,41 +108,12 @@ function init(){
     //////////////////////////////////////////////////
     *************************************************/
 
-    $('.dropdown-button').dropdown({
-        inDuration: 500,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: false, // Displays dropdown below the button
-        alignment: 'left' // Displays dropdown with edge aligned to the left of button
-    });
-
-    // Removed feature; poor UX
-    /*
-    $('.dropdown-constant').hover(function(){
-        $('.nest-dropdown').css('cssText', 'min-height: 0px !important;');
-    });*/
 
     //Don't add "out" handler. It's important the user hovers over '.dropdown-constant' to close out '.nest-trigger'
 
     $('.nest-trigger').hover(function(){
         $('.nest-dropdown').css('cssText', 'min-height: 150px !important;');
     });
-
-    //UX Implementation: For Mobile Users, click functionality is necessary
-    //Removed because it interfered with accessing the product page
-    /*
-    $('.nest-trigger').click(function(){
-        var nestDropdown = $('.nest-dropdown');
-        var height = nestDropdown.css('min-height');
-        if(height !== "0px"){
-            $('.nest-dropdown').css('cssText', 'min-height: 0px !important;');
-        }else{
-            $('.nest-dropdown').css('cssText', 'min-height: 150px !important;');
-        }
-        return false;
-    });*/
     
     /*************************************************
     //////////////////////////////////////////////////
@@ -129,8 +123,8 @@ function init(){
     //////////////////////////////////////////////////
     *************************************************/
 
-    $('#login').click(function(){
-        bgFadeIn('#form-signin');
+    $('#register').click(function(){
+        bgFadeIn('#form-signin-hidden');
         return true;
     });
     $('.signup-arrow').click(function(){
@@ -183,14 +177,98 @@ function init(){
 
     //////////////////////////////////////////////////
     *************************************************/
+
+    function clickInit(){
+        function imgRotate(imgSelect,classy,img){
+            var image = 'img/icon-' + img + '.png';
+            imgSelect.children('img').addClass(classy);
+            setTimeout(function(){
+                imgSelect.children('img').attr('src',image);
+            }, 100);
+        }
+
+        function removeDescClass(classy){
+            var illumButton = $(classy).children('img'),
+                activeState = 'clockwise',
+                inactiveState = 'counter';
+            illumButton.each(function(index){
+                if($(this).hasClass(activeState) === true){
+                    $(this).removeClass();
+                    $(classy).removeClass('takeFlight');
+                    $(this).attr('src','img/icon-plus.png');
+                }else if($(this).hasClass(inactiveState) === true){
+                    $(this).removeClass();
+                    $(classy).removeClass('takeFlight');
+                    $(this).attr('src','img/icon-plus.png');
+                }
+            });
+            removeIllum();
+            return false;
+        }
+
+        function removeIllum(){
+            $('.illum-desc').css({'opacity':'0'});
+            $('.illum-desc').remove();
+            return false;
+        }
+        $('.illum-button').click(function(){
+            if($(this).hasClass("takeFlight")){
+
+                // Handler for closing out description prompt 
+
+                imgRotate($(this),"counter","plus");
+                removeIllum();
+                $('.illum-button').removeClass('takeFlight');
+                return false;
+            }else{
+
+                // Handler for opening description prompt 
+
+                imgRotate($(this),"clockwise","minus");
+                removeIllum();
+                $('.illum-button').removeClass('takeFlight');
+                var attribute = $(this).data('illum'),
+                    open = "<span class='illum-desc'><span class='about-inner-desc'><p>",
+                    close = "</p></span></span>";
+
+                $(this).addClass('takeFlight');
+
+                if(attribute === "popupOne"){
+                    $(this).append(open + popupData[0] + close);
+                }else if (attribute === "popupTwo"){
+                    $(this).append(open + popupData[1] + close);
+                }else if (attribute === "popupThree"){
+                    $(this).append(open + popupData[2] + close);
+                }
+                setTimeout(function(){
+                    $('.illum-desc').css({'opacity':'0.9'});
+                }, 100);
+                return false;
+            }
+        });
+        $('.illum-desc').click(function(){
+            removeDescClass('.illum-button');
+        });
+        $('.product-summaries').click(function(){
+            removeDescClass('.illum-button');
+        })
+    }
+
+    var popupData = [];
+
     function suiteJSON(suiteType){
         $.getJSON("ajax/suite.json", function ( data ) {
             var suiteInfo = [],
                 def;
 
             $.each(data, function(key, val){
+                popupData = [];
                 if ((key === suiteType) && (suiteType !== "def")){
                     suiteInfo.push("<img src='" + val.image + "' alt='" + val.name + "'><h2>" + val.title + "</h2><p>" + val.summary + "</p><div class='outer-center'><div class='mid-left'><a href='" + val.external + "'>Learn More </a></div><div class='mid-left icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' alt='' /></a></div></div>");
+                    suiteInfo.push("<a href='#!' class='illum-button' data-illum='popupOne'><img src='img/icon-plus.png' alt=''></a>");
+                    suiteInfo.push("<a href='#!' class='illum-button' data-illum='popupTwo'><img src='img/icon-plus.png' alt=''></a>");
+                    suiteInfo.push("<a href='#!' class='illum-button right' data-illum='popupThree'><img src='img/icon-plus.png' alt=''></a>");
+                    popupData.push(val.popupOne, val.popupTwo, val.popupThree);
                 }
             });
             if(suiteInfo.length < 1){
@@ -211,12 +289,13 @@ function init(){
                 return false;
             }
             $( "<div/>", {
-                "class": "col s12 m12 l8 center",
+                "class": "col s12 m10 l8 center",
                 html: suiteInfo
             }).appendTo( '.product-summaries' );
             setTimeout(function(){
                 $('.product-summaries').css({'max-height':'800px'});
             }, 50);
+            clickInit();
         });
     }
 
@@ -234,22 +313,30 @@ function init(){
             }
         }
         setTimeout( function () {
-            //$(this).addClass('active');
+            //remove any children from Product Summaries (container)
             if($('.product-summaries').children().length > 0){
                 $('.default-text').css({'opacity':'0'});
+                $('.illum-button').css({'opacity':'0'});
                 $('.product-summaries').css({'max-height':'0'});
                 setTimeout(function(){
                     $('.product-summaries').empty();
                 }, 500);
                 setTimeout(function(){
                     suiteJSON(suiteType);
+                    setTimeout(function(){
+                        $('.illum-button').css({'opacity':'1'});
+                    }, 100);
                 }, 500);
             }else{
                 suiteJSON(suiteType);
+                setTimeout(function(){
+                    $('.illum-button').css({'opacity':'1'});
+                }, 100);
             }
         }, 500);
         return false;
     });
+
 
     /*************************************************
     //////////////////////////////////////////////////
@@ -305,10 +392,9 @@ function init(){
         $.getJSON("ajax/xcard.json", function ( data ) {
             var sliders = [];
             $.each(data, function(key, val){
-                console.log("working each");
                 if (val.summaryTwo.length > 0) {
                     console.log("working if");
-                    sliders.push(divOpen + "<img src='" + val.image + "' alt='" + val.name + "'><h3>" + val.title + "</h3>"+ rowOpen + "<h6>" + val.summaryTitle + "</h6><p>" + val.summary + "</p>" + linkOpen + "<a href='" + val.external + "'>Learn More</a></div><div class='mid-right icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' /></a></div></div></div><div class='col s12 m6 l6 left slider-text'><h6>" + val.summaryTwoTitle + "</h6><p>" + val.summaryTwo + "</p></div>");
+                    sliders.push(divOpen + "<img src='" + val.image + "' alt='" + val.name + "'><h3>" + val.title + "</h3>"+ rowOpen + "<h6>" + val.summaryTitle + "</h6><p>" + val.summary + "</p>" + linkOpen + "<a href='" + val.external + "'>Learn More</a></div><div class='mid-right icon'><a href='" + val.external + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' /></a></div></div></div><div class='col s12 m6 l6 left slider-text'><h6>" + val.summaryTwoTitle + "</h6><p>" + val.summaryTwo + "</p>" + linkOpen + "<a href='" + val.external2 + "'>Watch video</a></div><div class='mid-right icon'><a href='" + val.external2 + "'><img class='icon-arrow' src='img/icon_blue_arrow.png' /></a></div></div>");
                 }else{
                     sliders.push(rowOpenTwo + divOpenTwo + "<img src='" + val.image + "' alt='" + val.name + "'></div></div>" + divOpenTwo + "<div id='full-width' class='text left'><h3>" + val.title + "</h3><h4>" + val.summaryTitle + "</h4><p>" + val.summary + "</p></div></div></div></div>");
                 }
